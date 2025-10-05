@@ -1,24 +1,19 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
 
-# Set color variables
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m'
-
-echo "${GREEN}--- Running Husky Pre-Commit Hook: Checking for console.log ---${NC}"
+echo "--- Running Husky Pre-Commit Hook: Checking for console.log ---"
 
 # Define the forbidden pattern
 FORBIDDEN='console\.(log|info|warn|error|dir|clear|table)'
 
 # Search for the forbidden pattern in all staged files
-# The --diff-filter=ACM ensures we only check Added, Copied, or Modified files
 if git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx)$' | xargs grep -E "$FORBIDDEN" --with-filename -n | grep -v '//'
 then
-  echo "${RED}COMMIT ABORTED: Found unremoved console statements!${NC}"
+  echo ""
+  echo "!!! COMMIT ABORTED: Found unremoved console statements! !!!"
   echo "Please remove the statements listed above before committing."
-  exit 1 # Abort the commit
+  echo ""
+  exit 1
 else
-  echo "${GREEN}Pre-commit check passed: No console statements found in staged files.${NC}"
-  exit 0 # Allow the commit to proceed
+  echo "Pre-commit check passed: No console statements found in staged files."
+  exit 0
 fi
