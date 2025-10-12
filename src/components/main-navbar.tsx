@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 import { ThemeToggleSwitch } from "@/components/theme-toggle"
+import { GrowOnHover } from "./Animations";
 
 // Navigation Links Data
 const navLinks = [
@@ -52,9 +53,11 @@ export function MainNavbar() {
       <nav className="flex items-center justify-between w-full max-w-7xl px-4 md:px-8">
         
         {/* Logo/Name */}
-        <Link href="/" className="text-2xl font-bold tracking-tight">
-          <span className="text-foreground hover:text-primary transition-colors">Tai Williams</span>
-        </Link>
+        <GrowOnHover>
+            <Link href="/" className="text-2xl font-bold tracking-tight">
+              <span className="text-foreground hover:text-primary transition-colors">Tai Williams</span>
+            </Link>
+        </GrowOnHover>
 
         {/* --- Desktop Navigation --- */}
         <div className="hidden md:flex items-center space-x-6">
