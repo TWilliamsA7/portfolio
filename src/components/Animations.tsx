@@ -12,7 +12,7 @@ const bobVariants: Variants = {
       ease: "easeInOut",   // Smooth acceleration and deceleration
       repeat: Infinity,    // Loop forever
       repeatType: "mirror", // Smoothly reverse the animation
-      repeatDelay: 0.5,     // Small pause between cycles (optional)
+      repeatDelay: 0.5,
     },
   },
   // Optional: A non-bobbing state for when it's out of view
@@ -28,6 +28,23 @@ const hoverGrowVariants: Variants = {
     transition: {
       duration: 0.3,
       ease: "linear"
+    }
+  },
+
+  initial: {
+    scale: 1.0
+  }
+}
+
+const inhaleExhaleVariants: Variants = {
+  grow: {
+    scale: 1.1,
+    transition: {
+      duration: 10,
+      ease: "easeInOut",
+      repeat: Infinity,    // Loop forever
+      repeatType: "mirror", // Smoothly reverse the animation
+      repeatDelay: 0.5,     // Small pause between cycles (optional)
     }
   },
 
@@ -61,6 +78,23 @@ export function GrowOnHover({ children }: { children: React.ReactNode }) {
       variants={hoverGrowVariants}
       initial="initial"
       whileHover="grow"
+      viewport={{
+        amount: 0.5,
+        once: false
+      }}
+    >
+      {children}
+    </motion.div>
+
+  )
+}
+
+export function ContinuousBreathInOut({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      variants={inhaleExhaleVariants}
+      initial="initial"
+      whileInView="grow"
       viewport={{
         amount: 0.5,
         once: false
