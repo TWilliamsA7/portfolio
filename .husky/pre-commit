@@ -2,10 +2,9 @@
 
 # =========================================================================
 # Custom Pre-Commit Hook (Managed by Husky)
-# Checks for: 1. Console Logs, 2. Secrets, 3. Merge Markers, 4. Formatting
 # =========================================================================
 
-# Terminal colors
+# --- Terminal colors ---
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -16,19 +15,18 @@ echo -e "${YELLOW}-- Running ESLint Checks ---${NC}"
 npx lint-staged
 
 
-# --- 1. Automatic Formatting and File Cleanup ---
+# --- Automatic Formatting and File Cleanup ---
 # Use Git to check out the clean version of the file, then re-add it.
-
 echo -e "${YELLOW}--- Running Auto-Fixes (Trailing Whitespace/EoL) ---${NC}"
 
-# 1a. Trailing Whitespace
+# Trailing Whitespace
 if git diff --cached --name-only --diff-filter=ACM | xargs grep -lE '[[:space:]]+$'
 then
   echo -e "${YELLOW}Fixing trailing whitespace...${NC}"
   git diff --cached --name-only --diff-filter=ACM | xargs sed -i -E 's/[[:space:]]+$//'
 fi
 
-# 1b. End of File Newline (EoL)
+# End of File Newline (EoL)
 
 # After auto-fixes, re-stage the modified files.
 if git diff --name-only | xargs git add
@@ -37,12 +35,12 @@ then
 fi
 
 
-# --- 2. Code Quality Check: console.log ---
+# --- Console Log Checks ---
 
 echo -e "${YELLOW}--- Running Console Log Check ---${NC}"
 FORBIDDEN_CONSOLE='console\.(log|info|warn|error|dir|clear|table)'
 
-# Search in staged JS/TS files. Abort if found.
+# Search in staged JSX/TSX/JS/TS files. Abort if found.
 if git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx)$' | xargs grep -E "$FORBIDDEN_CONSOLE" --with-filename -n | grep -v '//'
 then
   echo -e -e "${RED}COMMIT ABORTED: Found unremoved console statements!${NC}"
@@ -53,7 +51,7 @@ else
 fi
 
 
-# --- 3. Security Check: Merge Conflict Markers ---
+# --- Security Check: Merge Conflict Markers ---
 
 echo -e "${YELLOW}--- Running Merge Conflict Check ---${NC}"
 
@@ -67,7 +65,7 @@ else
 fi
 
 
-# --- 4. Basic Security Check: Common Secrets ---
+# ---  Basic Security Check: Common Secrets ---
 # Checks for common secret patterns like API keys or basic credential files.
 
 echo -e "${YELLOW}--- Running Basic Secret Detection Check ---${NC}"
