@@ -69,6 +69,7 @@ export default function HomepageHero() {
         {/* Short Blurb */}
         <motion.p
           variants={itemVariants}
+          transition={itemVariants.visible as any}
           className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
         >
           I build scalable and user-friendly applications as a Full-Stack Developer. Specialized in the modern web development ecosystem: **Next.js, TypeScript, and the MERN stack.**

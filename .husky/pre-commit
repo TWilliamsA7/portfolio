@@ -11,6 +11,11 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
+# --- Trigger Linting ---
+echo -e "${YELLOW}-- Running ESLint Checks ---${NC}"
+npx lint-staged
+
+
 # --- 1. Automatic Formatting and File Cleanup ---
 # Use Git to check out the clean version of the file, then re-add it.
 
