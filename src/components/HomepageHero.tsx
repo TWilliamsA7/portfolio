@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion, type Variants } from 'motion/react';
 import { ContinuousBob, GrowOnHover } from './Animations';
 
-const PROFILE_IMAGE_PATH = "/headshot.jpg"; 
+const PROFILE_IMAGE_PATH = "/headshot.jpg";
 
 export default function HomepageHero() {
   // Framer Motion Animation Variants for a smooth entrance
@@ -35,14 +35,14 @@ export default function HomepageHero() {
         animate="visible"
       >
         {/* Profile Image (Ensure 'next/image' is configured for your domain if using remote images) */}
-        <motion.div 
-            variants={itemVariants} 
+        <motion.div
+            variants={itemVariants}
             className="mb-6"
         >
         <ContinuousBob>
-          <div className={`relative w-32 h-32 
-                            md:w-48 md:h-48 mx-auto 
-                            rounded-full overflow-hidden 
+          <div className={`relative w-32 h-32
+                            md:w-48 md:h-48 mx-auto
+                            rounded-full overflow-hidden
                             border-4 border-primary shadow-2xl
                             `}>
             <Image
@@ -50,7 +50,7 @@ export default function HomepageHero() {
               alt="Profile Picture of Tai Williams"
               layout="fill"
               className="object-cover"
-              priority 
+              priority
             />
           </div>
         </ContinuousBob>
@@ -69,12 +69,11 @@ export default function HomepageHero() {
         {/* Short Blurb */}
         <motion.p
           variants={itemVariants}
-          transition={itemVariants.visible as any}
           className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
         >
           I build scalable and user-friendly applications as a Full-Stack Developer. Specialized in the modern web development ecosystem: **Next.js, TypeScript, and the MERN stack.**
         </motion.p>
-        
+
         {/* Call to Action (Optional, but highly recommended) */}
         <motion.div variants={itemVariants} className="mt-8">
           {/* Example: A Button Component from Shadcn */}
