@@ -19,7 +19,7 @@ const navLinks = [
   { href: "/contact", title: "Contact", icon: Mail },
 ];
 
-export function MainNavbar() {
+export default function MainNavbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   
   // --- Scroll Detection Effect ---
