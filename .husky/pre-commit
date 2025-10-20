@@ -1,19 +1,92 @@
 #!/bin/sh
 
-echo "--- Running Husky Pre-Commit Hook: Checking for console.log ---"
+# =========================================================================
+# Custom Pre-Commit Hook (Managed by Husky)
+# =========================================================================
 
-# Define the forbidden pattern
-FORBIDDEN='console\.(log|info|warn|error|dir|clear|table)'
+# --- Terminal colors ---
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+NC='\033[0m'
 
-# Search for the forbidden pattern in all staged files
-if git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx)$' | xargs grep -E "$FORBIDDEN" --with-filename -n | grep -v '//'
+# --- Trigger Linting ---
+echo -e "${YELLOW}-- Running ESLint Checks ---${NC}"
+npx lint-staged
+
+
+# --- Automatic Formatting and File Cleanup ---
+# Use Git to check out the clean version of the file, then re-add it.
+echo -e "${YELLOW}--- Running Auto-Fixes (Trailing Whitespace/EoL) ---${NC}"
+
+# Trailing Whitespace
+if git diff --cached --name-only --diff-filter=ACM | xargs grep -lE '[[:space:]]+$'
 then
-  echo ""
-  echo "!!! COMMIT ABORTED: Found unremoved console statements! !!!"
-  echo "Please remove the statements listed above before committing."
-  echo ""
+  echo -e "${YELLOW}Fixing trailing whitespace...${NC}"
+  git diff --cached --name-only --diff-filter=ACM | xargs sed -i -E 's/[[:space:]]+$//'
+fi
+
+# End of File Newline (EoL)
+
+# After auto-fixes, re-stage the modified files.
+if git diff --name-only | xargs git add .
+then
+    echo -e "${GREEN}Auto-fixes staged successfully.${NC}"
+fi
+
+
+# --- Console Log Checks ---
+
+echo -e "${YELLOW}--- Running Console Log Check ---${NC}"
+FORBIDDEN_CONSOLE='console\.(log|info|warn|error|dir|clear|table)'
+
+# Search in staged JSX/TSX/JS/TS files. Abort if found.
+if git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx)$' | xargs grep -E "$FORBIDDEN_CONSOLE" --with-filename -n | grep -v '//'
+then
+  echo -e -e "${RED}COMMIT ABORTED: Found unremoved console statements!${NC}"
+  echo -e "Please remove the statements listed above before committing."
   exit 1
 else
-  echo "Pre-commit check passed: No console statements found in staged files."
-  exit 0
+  echo -e "${GREEN}Console Log check passed.${NC}"
 fi
+
+
+# --- Security Check: Merge Conflict Markers ---
+
+echo -e "${YELLOW}--- Running Merge Conflict Check ---${NC}"
+
+if git diff --cached --name-only --diff-filter=ACM | xargs grep -El '^(<<<<<<<|=======|>>>>>>>)' > /dev/null
+then
+  echo -e "${RED}COMMIT ABORTED: Found unmerged conflict markers (<<<<<<<, =======, >>>>>>>) in staged files.${NC}"
+  echo -e "Please resolve all merge conflicts before committing."
+  exit 1
+else
+  echo -e "${GREEN}Merge Conflict check passed.${NC}"
+fi
+
+
+# ---  Basic Security Check: Common Secrets ---
+# Checks for common secret patterns like API keys or basic credential files.
+
+echo -e "${YELLOW}--- Running Basic Secret Detection Check ---${NC}"
+
+# Common sensitive file names or extensions to check
+SENSITIVE_FILES='.env .env.* .pem .key .secret .kdbx'
+FOUND_SECRETS=0
+
+for FILE in $SENSITIVE_FILES; do
+  if [ -f "$FILE" ] && git diff --cached --name-only --diff-filter=A | grep -q "$FILE"; then
+    echo -e "${RED}COMMIT ABORTED: Attempting to commit sensitive file: $FILE${NC}"
+    FOUND_SECRETS=1
+  fi
+done
+
+if [ "$FOUND_SECRETS" -eq 1 ]; then
+    echo -e "Please add '$FILE' to your .gitignore and try again."
+    exit 1
+else
+    echo -e "${GREEN}Basic Secret detection passed.${NC}"
+fi
+
+# If all checks pass, the script will exit 0 and the commit will proceed.
+echo -e "${GREEN}--- Pre-commit hook completed successfully. ---${NC}"

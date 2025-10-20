@@ -4,7 +4,6 @@ import React from 'react'
 import { motion, type Transition, Variants } from 'motion/react';
 import { Terminal, Code, HeartHandshake } from 'lucide-react'
 
-// import { InfiniteScrollGallery } from './infinite-scroll-gallery'
 import { Separator } from '@/components/ui/separator'
 import { Button } from '@/components/ui/button'
 
@@ -51,7 +50,7 @@ export default function AboutSection() {
                 <motion.p 
                     variants={textVariants} 
                     className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6"
-                    transition={{ ...(textVariants.visible as any).transition, delay: 0.2 }}
+                    transition={{ ...textVariants.visible.transition, delay: 0.2 }}
                 >
                     As a dedicated Full-Stack Developer, my passion lies in building applications that are not just functional, but truly enjoyable to use. I thrive on the challenge of bridging the gap between elegant design and robust, scalable backend architecture.
                 </motion.p>
@@ -59,7 +58,7 @@ export default function AboutSection() {
                 <motion.p 
                     variants={textVariants} 
                     className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8"
-                    transition={{ ...(textVariants.visible as any).transition, delay: 0.4 } as Transition}
+                    transition={{ ...textVariants.visible.transition, delay: 0.4 }}
                 >
                     My journey started with a deep dive into modern JavaScript frameworks and the MERN stack, but I constantly expand my horizons into cloud services, DevOps practices, and new languages to deliver holistic, production-ready solutions.
                 </motion.p>
