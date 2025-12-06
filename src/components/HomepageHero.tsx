@@ -61,7 +61,7 @@ export default function HomepageHero() {
         </motion.div>
 
         {/* Name */}
-        <GrowOnHover>
+        <GrowOnHover scale={1.05} duration={0.3}>
           <motion.h1
             variants={itemVariants}
             className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-4"
