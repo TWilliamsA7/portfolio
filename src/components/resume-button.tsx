@@ -14,7 +14,7 @@ export default function ResumeButton() {
         variant={"default"}
         size={"lg"}
         className="text-lg hover:text-accent"
-        onClick={() => router.push("/resume")}
+        onClick={() => router.push("/resume.pdf")}
       >
         <FileUser className="ml-2 h-6 w-6" />
         View My Resume!
