@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { ContinuousBob, GrowOnHover } from "@/components/Animations";
+import { ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const PROFILE_IMAGE_PATH = "/headshot.jpg";
 
@@ -59,7 +61,7 @@ export default function HomepageHero() {
         </motion.div>
 
         {/* Name */}
-        <GrowOnHover>
+        <GrowOnHover scale={1.05} duration={0.3}>
           <motion.h1
             variants={itemVariants}
             className="text-5xl md:text-7xl font-extrabold tracking-tight text-foreground mb-4"
@@ -73,15 +75,16 @@ export default function HomepageHero() {
           variants={itemVariants}
           className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto"
         >
-          I build scalable and user-friendly applications as a Full-Stack
-          Developer. Specialized in the modern web development ecosystem:
-          **Next.js, TypeScript, and the MERN stack.**
+          Aspiring Computer Engineer and Technology Lover
         </motion.p>
 
-        {/* Call to Action (Optional, but highly recommended) */}
         <motion.div variants={itemVariants} className="mt-8">
-          {/* Example: A Button Component from Shadcn */}
-          {/* <Button size="lg" className="text-lg">View My Projects <ArrowRight className="ml-2 h-5 w-5" /></Button> */}
+          <GrowOnHover scale={1.05} duration={0.15}>
+            <Button size="lg" className="text-lg hover:text-accent">
+              View My Work!
+              <ArrowDown className="ml-2 h-5 w-5" />
+            </Button>
+          </GrowOnHover>
         </motion.div>
       </motion.div>
     </section>
