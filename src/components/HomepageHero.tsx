@@ -7,7 +7,7 @@ import { ContinuousBob, GrowOnHover } from "./Animations";
 import { ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 
-const PROFILE_IMAGE_PATH = "/globe.svg";
+const PROFILE_IMAGE_PATH = "/headshot.jpg";
 
 export default function HomepageHero() {
   // Framer Motion Animation Variants for a smooth entrance
