@@ -7,7 +7,12 @@ import { ProjectModal } from "@/components/projects/project-modal";
 
 export function FeaturedProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const FEATURED_PROJECT_IDS: number[] = [1, 3, 4, 5];
+  const FEATURED_PROJECT_IDS: string[] = [
+    "emsim",
+    "folder-sort",
+    "asl-neural-app",
+    "growcery",
+  ];
 
   return (
     <>
