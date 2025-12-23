@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { FloatingBackground } from "@/components/floating-background";
+import MainNavbar from "@/components/main-navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,9 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 // --- METADATA FOR SEO & SOCIAL SHARING ---
-const SITE_TITLE: string = "Tai Williams | Software Engineer & Developer Portfolio"
-const SITE_DESCRIPTION: string = "A professional portfolio showcasing projects, skills, and experience in modern web development using Next.js, TypeScript, and Tailwind CSS."
-const SITE_URL: string = "https://yourportfolio.com"
+const SITE_TITLE: string =
+  "Tai Williams | Software Engineer & Developer Portfolio";
+const SITE_DESCRIPTION: string =
+  "A professional portfolio showcasing projects, skills, and experience in modern web development using Next.js, TypeScript, and Tailwind CSS.";
+const SITE_URL: string = "https://yourportfolio.com";
 
 export const metadata: Metadata = {
   // Primary SEO Tags
@@ -27,13 +30,21 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_TITLE}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Portfolio", "Software Engineer", "Web Developer"],
+  keywords: [
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "React",
+    "Portfolio",
+    "Software Engineer",
+    "Web Developer",
+  ],
   authors: [{ name: "Tai Williams" }],
-  
+
   // Canonical URL
   metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
 
   // Open Graph (For Facebook, LinkedIn, etc.)
@@ -41,7 +52,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
-    siteName: 'Developer Portfolio',
+    siteName: "Developer Portfolio",
     images: [
       {
         url: `${SITE_URL}/og-image.jpg`,
@@ -50,8 +61,8 @@ export const metadata: Metadata = {
         alt: SITE_TITLE,
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
 
   // Twitter Card (For X/Twitter)
@@ -67,7 +78,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-}
+};
 
 export default function RootLayout({
   children,
@@ -89,6 +100,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <FloatingBackground />
+          <MainNavbar />
           {children}
         </ThemeProvider>
       </body>
