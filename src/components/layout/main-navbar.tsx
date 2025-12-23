@@ -13,7 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import { ThemeToggleSwitch } from "@/components/theme-toggle";
+import { ThemeToggleSwitch } from "@/components/layout/theme-toggle";
 import { GrowOnHover } from "./Animations";
 
 // Navigation Links Data

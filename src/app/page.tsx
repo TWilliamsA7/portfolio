@@ -1,5 +1,5 @@
 import HomepageHero from "@/components/homepage/HomepageHero";
-import ResumeButton from "@/components/resume-button";
+import ResumeButton from "@/components/homepage/resume-button";
 import AboutSection from "@/components/homepage/about-section";
 
 import { FeaturedProjectsSection } from "@/components/projects/featured-projects-section";

@@ -1,7 +1,7 @@
 "use client";
 
 import { FolderKanban } from "lucide-react";
-import { GrowOnHover } from "@/components/Animations";
+import { GrowOnHover } from "@/components/layout/Animations";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 

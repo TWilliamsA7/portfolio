@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, type Variants } from "motion/react";
-import { ContinuousBob, GrowOnHover } from "@/components/Animations";
+import { ContinuousBob, GrowOnHover } from "@/components/layout/Animations";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
