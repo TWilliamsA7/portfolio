@@ -3,9 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import { motion, type Variants } from "motion/react";
-import { ContinuousBob, GrowOnHover } from "./Animations";
+import { ContinuousBob, GrowOnHover } from "@/components/layout/Animations";
 import { ArrowDown } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 const PROFILE_IMAGE_PATH = "/headshot.jpg";
 

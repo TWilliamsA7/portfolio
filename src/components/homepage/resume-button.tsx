@@ -1,8 +1,8 @@
 "use client";
 
 import { FileUser } from "lucide-react";
-import { GrowOnHover } from "./Animations";
-import { Button } from "./ui/button";
+import { GrowOnHover } from "@/components/layout/Animations";
+import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
 export default function ResumeButton() {

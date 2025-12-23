@@ -2,7 +2,7 @@
 
 import { motion, type Variants } from "motion/react";
 import Image from "next/image";
-import { Separator } from "./ui/separator";
+import { Separator } from "@/components/ui/separator";
 import { Code, Cog, Component } from "lucide-react";
 
 const ABOUT_ME_IMAGE_PATH: string = "/shellhacks_win_2025.jpg";

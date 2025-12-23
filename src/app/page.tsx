@@ -1,18 +1,20 @@
-import AboutSection from "@/components/about-section-v2";
-import HomepageHero from "@/components/HomepageHero";
-import MainNavbar from "@/components/main-navbar";
-import ResumeButton from "@/components/resume-button";
+import HomepageHero from "@/components/homepage/HomepageHero";
+import ResumeButton from "@/components/homepage/resume-button";
+import AboutSection from "@/components/homepage/about-section";
+
+import { FeaturedProjectsSection } from "@/components/projects/featured-projects-section";
 
 export default function Home() {
   return (
     <main>
-      <MainNavbar />
       <HomepageHero />
       <AboutSection />
 
       <div className="flex items-center justify-center">
         <ResumeButton />
       </div>
+
+      <FeaturedProjectsSection />
 
       {/* Placeholder content to enable scrolling and test the navbar interaction */}
       <div className="h-[200vh] flex items-center justify-center">
