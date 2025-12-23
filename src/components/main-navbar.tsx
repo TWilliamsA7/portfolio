@@ -19,9 +19,8 @@ import { GrowOnHover } from "./Animations";
 // Navigation Links Data
 const navLinks = [
   { href: "/", title: "Home", icon: HomeIcon },
-  { href: "/about", title: "About", icon: MenuIcon },
   { href: "/projects", title: "Projects", icon: Code },
-  { href: "/resume", title: "Resume", icon: FileUser },
+  { href: "/resume.pdf", title: "Resume", icon: FileUser },
   { href: "/contact", title: "Contact", icon: Mail },
 ];
 
