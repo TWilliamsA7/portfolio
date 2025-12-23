@@ -38,7 +38,7 @@ export const projects: Project[] = [
     fullDescription:
       "Built a 3D Viewport for visualizing simple models derived from triangles. Implemented Matrix and Point Classes to describe the object and perfomr the necessary option to render and manipulate the model in the viewport including lighting. For the demo, a tetrahedron was created and subdivided to create a sphere.",
     technologies: ["Java", "Swing"],
-    image: "/Java3DRenderer.jpg",
+    image: "/project-images/Java3DRenderer.jpg",
     icon: Rotate3D,
     githubUrl: "https://github.com/TWilliamsA7/3DRenderer",
     features: [
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     fullDescription:
       "This project is an implementation of Chess in Java using Swing for the UI. This is a fully playable version of chess including promotion, castling, en passant, check, and checkmate. This project was a learning experience in Java but more importantly OOP design princples allowing for organized, safer code.",
     technologies: ["Java", "Swing"],
-    image: "/ChessProj.jpg",
+    image: "/project-images/ChessProj.jpg",
     icon: Puzzle,
     githubUrl: "https://github.com/TWilliamsA7/Chess",
     features: [
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     fullDescription:
       "This project is an implementation of the CHIP8 Virtual Machine following the original CHIP8 specification. Created a digital structure to recreate the opcode processing and memory interactions of the original Chip8. Using SDL2 to create a graphical interface for the operations taking place. As each opcode is processed, it is logged for debugging purposes and validation.",
     technologies: ["C", "SDL2"],
-    image: "/Chip8.jpg",
+    image: "/project-images/Chip8.jpg",
     icon: Cpu,
     githubUrl: "https://github.com/TWilliamsA7/Chip8Emulator",
     features: [
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     fullDescription:
       "This project was initially for my COT3100 Intro to Discrete Structures Final Project. The purpose of this work is to analyze and implement various methods to address errors in digital circuits. These methods were implemented in Verilog and validated through testbenches. Through these implementations and analysis, I wrote a paper on my findings and work.",
     technologies: ["Verilog", "SystemVerilog", "GTKWave", "Icarus"],
-    image: "/ECDC.jpg",
+    image: "/project-images/ECDC.jpg",
     icon: Binary,
     githubUrl: "https://github.com/TWilliamsA7/DigitalErrorAnalysis",
     features: [
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     fullDescription:
       "This project is a 3D renderer built using the SDL2 Library in C++. The objects placed within this renderer have physical properties and interactions. Static fields can also be imported into the scene for more complex interactions. A scene.json file must included in the command line to provide instructions on how to generate the scene.",
     technologies: ["C++", "SDL2", "CMake"],
-    image: "/EMSim.jpg",
+    image: "/project-images/EMSim.jpg",
     icon: Atom,
     githubUrl: "https://github.com/TWilliamsA7/EMsim",
     features: [
@@ -148,7 +148,7 @@ export const projects: Project[] = [
     fullDescription:
       "This project was built to serve as a personal means for budgeting and tracking expenses. It is a web application built using the Django framework and uses a sqlite3 database given its scale. There is potential of furthering and deploying the project in the future.",
     technologies: ["Python", "Django", "Sqlite3", "HTML", "CSS"],
-    image: "/financetracker.jpg",
+    image: "/project-images/financetracker.jpg",
     icon: CircleDollarSign,
     githubUrl: "https://github.com/TWilliamsA7/FinanceTracker",
     features: [
@@ -182,7 +182,7 @@ export const projects: Project[] = [
     fullDescription:
       "This is a repository for a school project in which a water vessel must travel across a fountain autonomously. Our boat used a twin motor differential drivetrain as opposed to a rudder. Using a gyroscope and arduino nano, the boat propelled itself along a predefined course.",
     technologies: ["Arduino", "OnShape", "Circuitry", "Breadboarding"],
-    image: "/GNORBoat.jpg",
+    image: "/project-images/GNORBoat.jpg",
     icon: Ship,
     githubUrl: "https://github.com/TWilliamsA7/GNORBoat",
     features: [

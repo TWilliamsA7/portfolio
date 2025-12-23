@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { X, ExternalLink, Check, FolderGit } from "lucide-react";
 import { type Project } from "@/data/projects";
+import Image from "next/image";
 
 interface ProjectModalProps {
   project: Project;
@@ -47,10 +48,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="p-6">
           <div className="relative h-64 sm:h-80 rounded-xl overflow-hidden mb-6">
-            <img
-              src={project.image}
+            <Image
+              src={project.image ? project.image : "/globe.svg"}
               alt={project.title}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="group-hover:scale-110 transition-transform duration-300"
             />
           </div>
 

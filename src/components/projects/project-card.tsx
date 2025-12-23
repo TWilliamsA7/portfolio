@@ -1,4 +1,5 @@
 import { type Project } from "@/data/projects";
+import Image from "next/image";
 
 interface ProjectCardProps {
   project: Project;
@@ -14,10 +15,12 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       className="group bg-[#0f0f1e] rounded-xl overflow-hidden border border-gray-800 hover:border-purple-500/50 transition-all cursor-pointer hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1"
     >
       <div className="relative h-48 overflow-hidden bg-gray-900">
-        <img
-          src={project.image}
+        <Image
+          src={project.image ? project.image : "/globe.svg"}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="group-hover:scale-110 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f1e] to-transparent opacity-60"></div>
         <div className="absolute bottom-4 left-4">
