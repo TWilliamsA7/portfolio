@@ -4,6 +4,8 @@ import { ProjectCard } from "@/components/projects/project-card";
 import { projects, type Project } from "@/data/projects";
 import { useState } from "react";
 import { ProjectModal } from "@/components/projects/project-modal";
+import ViewProjectsButton from "@/components/projects/view-projects-button";
+import { Separator } from "@/components/ui/separator";
 
 export function FeaturedProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -36,6 +38,10 @@ export function FeaturedProjectsSection() {
                   onClick={() => setSelectedProject(project)}
                 />
               ))}
+          </div>
+          <Separator className="my-4" />
+          <div className="flex justify-center m-3">
+            <ViewProjectsButton />
           </div>
         </div>
       </section>
