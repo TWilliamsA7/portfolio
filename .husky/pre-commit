@@ -1,8 +1,5 @@
-#!/bin/sh
-
-# =========================================================================
-# Custom Pre-Commit Hook (Managed by Husky)
-# =========================================================================
+#!/usr/bin/env bash
+set -euo pipefail
 
 # --- Terminal colors ---
 RED='\033[0;31m'
@@ -10,83 +7,117 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-# --- Trigger Linting ---
-echo -e "${YELLOW}-- Running ESLint Checks ---${NC}"
-npx lint-staged
+echo -e "${YELLOW}--- Pre-commit: starting checks ---${NC}"
 
-
-# --- Automatic Formatting and File Cleanup ---
-# Use Git to check out the clean version of the file, then re-add it.
-echo -e "${YELLOW}--- Running Auto-Fixes (Trailing Whitespace/EoL) ---${NC}"
-
-# Trailing Whitespace
-if git diff --cached --name-only --diff-filter=ACM | xargs grep -lE '[[:space:]]+$'
-then
-  echo -e "${YELLOW}Fixing trailing whitespace...${NC}"
-  git diff --cached --name-only --diff-filter=ACM | xargs sed -i -E 's/[[:space:]]+$//'
-fi
-
-# End of File Newline (EoL)
-
-# After auto-fixes, re-stage the modified files.
-if git diff --name-only | xargs git add .
-then
-    echo -e "${GREEN}Auto-fixes staged successfully.${NC}"
-fi
-
-
-# --- Console Log Checks ---
-
-echo -e "${YELLOW}--- Running Console Log Check ---${NC}"
-FORBIDDEN_CONSOLE='console\.(log|info|warn|error|dir|clear|table)'
-
-# Search in staged JSX/TSX/JS/TS files. Abort if found.
-if git diff --cached --name-only --diff-filter=ACM | grep -E '\.(js|jsx|ts|tsx)$' | xargs grep -E "$FORBIDDEN_CONSOLE" --with-filename -n | grep -v '//'
-then
-  echo -e -e "${RED}COMMIT ABORTED: Found unremoved console statements!${NC}"
-  echo -e "Please remove the statements listed above before committing."
+# 1) Run lint-staged (this will run eslint/prettier on staged files and re-stage fixes)
+echo -e "${YELLOW}-- Running lint-staged ---${NC}"
+if ! npx --no -- lint-staged; then
+  echo -e "${RED}lint-staged failed. Fix issues then try again.${NC}"
   exit 1
-else
-  echo -e "${GREEN}Console Log check passed.${NC}"
 fi
 
+# Collect staged files (A = added, C = copied, M = modified)
+mapfile -d '' STAGED < <(git diff --cached --name-only --diff-filter=ACM -z)
 
-# --- Security Check: Merge Conflict Markers ---
-
-echo -e "${YELLOW}--- Running Merge Conflict Check ---${NC}"
-
-if git diff --cached --name-only --diff-filter=ACM | xargs grep -El '^(<<<<<<<|=======|>>>>>>>)' > /dev/null
-then
-  echo -e "${RED}COMMIT ABORTED: Found unmerged conflict markers (<<<<<<<, =======, >>>>>>>) in staged files.${NC}"
-  echo -e "Please resolve all merge conflicts before committing."
-  exit 1
-else
-  echo -e "${GREEN}Merge Conflict check passed.${NC}"
+# If nothing staged, just exit success.
+if [ ${#STAGED[@]} -eq 0 ]; then
+  echo -e "${YELLOW}No staged files to check.${NC}"
+  echo -e "${GREEN}Pre-commit completed successfully.${NC}"
+  exit 0
 fi
 
+# --- Automatic Formatting and File Cleanup (safe) ---
+echo -e "${YELLOW}--- Running safe auto-fixes (trailing whitespace only on text files) ---${NC}"
 
-# ---  Basic Security Check: Common Secrets ---
-# Checks for common secret patterns like API keys or basic credential files.
+# We'll only edit text files to avoid corrupting images/binaries.
+MODIFIED_FILES=()
+for file in "${STAGED[@]}"; do
+  # skip deleted files and directories
+  [ -f "$file" ] || continue
 
-echo -e "${YELLOW}--- Running Basic Secret Detection Check ---${NC}"
+  # Treat file as text only if grep -Iq succeeds (common cross-platform test)
+  if grep -Iq . "$file"; then
+    # Remove trailing whitespace from each line.
+    if command -v perl >/dev/null 2>&1; then
+      # Perl: supports multi-line and portable
+      perl -0777 -pe 's/[ \t]+$//mg' -i -- "$file"
+    else
+      # Fallback: sed. On some platforms sed -i needs an argument; using -i '' would fail on Linux,
+      # but git bash / mingw cope. We attempt the POSIX-compatible -i if present.
+      sed -i -E 's/[[:space:]]+$//' "$file" || sed -i '' -E 's/[[:space:]]+$//' "$file" || true
+    fi
 
-# Common sensitive file names or extensions to check
-SENSITIVE_FILES='.env .env.* .pem .key .secret .kdbx'
-FOUND_SECRETS=0
-
-for FILE in $SENSITIVE_FILES; do
-  if [ -f "$FILE" ] && git diff --cached --name-only --diff-filter=A | grep -q "$FILE"; then
-    echo -e "${RED}COMMIT ABORTED: Attempting to commit sensitive file: $FILE${NC}"
-    FOUND_SECRETS=1
+    # If file changed on disk vs index, re-stage it
+    if ! git diff --quiet -- "$file"; then
+      git add -- "$file"
+      MODIFIED_FILES+=("$file")
+    fi
+  else
+    # Binary — skip
+    :
   fi
 done
 
-if [ "$FOUND_SECRETS" -eq 1 ]; then
-    echo -e "Please add '$FILE' to your .gitignore and try again."
-    exit 1
+if [ ${#MODIFIED_FILES[@]} -gt 0 ]; then
+  echo -e "${GREEN}Auto-fixes applied and re-staged:${NC}"
+  for f in "${MODIFIED_FILES[@]}"; do
+    echo "  - $f"
+  done
 else
-    echo -e "${GREEN}Basic Secret detection passed.${NC}"
+  echo -e "${GREEN}No auto-fixes needed.${NC}"
 fi
 
-# If all checks pass, the script will exit 0 and the commit will proceed.
-echo -e "${GREEN}--- Pre-commit hook completed successfully. ---${NC}"
+# --- Console log check (optional) ---
+# NOTE: prefer to rely on ESLint 'no-console' rule; this is a lightweight fallback.
+echo -e "${YELLOW}--- Running simple console.* detection (index) ---${NC}"
+FORBIDDEN_CONSOLE='console\.(log|info|warn|error|dir|clear|table)'
+
+JS_TS_FILES=$(printf "%s\n" "${STAGED[@]}" | grep -E '\.(js|jsx|ts|tsx)$' || true)
+if [ -n "$JS_TS_FILES" ]; then
+  # Use git grep against the index (cached).
+  # git grep --cached prints matches from the index.
+  if git grep -n --cached -E "$FORBIDDEN_CONSOLE" -- $(printf "%s " $JS_TS_FILES) >/tmp/precommit-console-matches || true; then
+    # Filter out obvious single-line // comments crudely (eslint will be better)
+    # Show matches to user and abort
+    if [ -s /tmp/precommit-console-matches ]; then
+      echo -e "${RED}COMMIT ABORTED: Found console.* statements in staged files:${NC}"
+      cat /tmp/precommit-console-matches
+      rm -f /tmp/precommit-console-matches
+      exit 1
+    fi
+    rm -f /tmp/precommit-console-matches
+  fi
+fi
+
+# --- Merge conflict markers check ---
+echo -e "${YELLOW}--- Running merge conflict markers check ---${NC}"
+FOUND_CONFLICT=0
+for file in "${STAGED[@]}"; do
+  [ -f "$file" ] || continue
+  # only check text files to avoid false positives on binary files
+  if grep -Iq . "$file"; then
+    if grep -En '^(<<<<<<<|=======|>>>>>>>)' "$file" >/dev/null 2>&1; then
+      echo -e "${RED}COMMIT ABORTED: Merge conflict marker found in: $file${NC}"
+      FOUND_CONFLICT=1
+    fi
+  fi
+done
+if [ $FOUND_CONFLICT -eq 1 ]; then
+  exit 1
+fi
+
+# --- Basic secret detection (file name based) ---
+echo -e "${YELLOW}--- Running basic sensitive filename check ---${NC}"
+SENSITIVE_PATTERNS='(^|/)\.env$|(^|/)\.env\..*|\.pem$|\.key$|\.secret$|\.kdbx$'
+# Check only newly added files in the index
+ADDED_FILES=$(git diff --cached --name-only --diff-filter=A -z | tr '\0' '\n' || true)
+for file in $ADDED_FILES; do
+  if echo "$file" | grep -Eqi "$SENSITIVE_PATTERNS"; then
+    echo -e "${RED}COMMIT ABORTED: Attempting to add potentially sensitive file: $file${NC}"
+    echo -e "Please add it to .gitignore or remove it from the commit."
+    exit 1
+  fi
+done
+
+echo -e "${GREEN}--- Pre-commit checks passed ---${NC}"
+exit 0
