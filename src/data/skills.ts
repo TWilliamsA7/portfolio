@@ -60,16 +60,16 @@ import {
 } from "react-icons/vsc";
 
 export type SkillType =
-  | "Language"
-  | "Framework"
-  | "Developer Tool"
+  | "Languages"
+  | "Frameworks & Libraries"
+  | "Developer Tools"
   | "Hardware"
   | "Other";
 
 export const SkillTypes: SkillType[] = [
-  "Language",
-  "Framework",
-  "Developer Tool",
+  "Languages",
+  "Frameworks & Libraries",
+  "Developer Tools",
   "Hardware",
   "Other",
 ];
@@ -86,73 +86,73 @@ export const skills: Skill[] = [
     name: "C",
     icon: SiC,
     description: "Emulators, DSA, and tutoring",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "C#",
     icon: TbBrandCSharp,
     description: "Game development in Unity",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "C++",
     icon: SiCplusplus,
-    description: "Simulators, Cross-system tools, and Robotics",
-    skill_type: "Language",
+    description: "Simulators, Cross-system Toolss, and Robotics",
+    skill_type: "Languages",
   },
   {
     name: "CSS",
     icon: SiCss3,
     description: "Styling for Websites and Web Apps",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "Go",
     icon: SiGo,
     description: "Backend Web Development",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "HTML",
     icon: SiHtml5,
     description: "Structuring Websites and Web Apps",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "Java",
     icon: FaJava,
     description: "Renderer Applications and Classic Games",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "JavaScript",
     icon: SiJavascript,
     description: "Web App Interactivity and Cloudflare Workers",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "MATLAB",
     icon: SiMatrix,
     description: "Numerical Methods, Matrix Manipulation, and Simulation",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "Python",
     icon: SiPython,
     description: "Machine Learning, Web Applications, and Computer Vision",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "TypeScript",
     icon: SiTypescript,
     description: "Type Safe Full-Stack development",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "Verilog",
     icon: FaMicrochip,
     description: "RTL design and FPGA development",
-    skill_type: "Language",
+    skill_type: "Languages",
   },
   {
     name: "Arduino",
@@ -164,256 +164,256 @@ export const skills: Skill[] = [
     name: "BootstrapCSS",
     icon: SiBootstrap,
     description: "Styling Django Web Applications",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Django",
     icon: SiDjango,
     description: "Develop Full-Stack Web Applications",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "FastAPI",
     icon: SiFastapi,
     description: "Create Simple API Structure for Application Interaction",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Flask",
     icon: SiFlask,
     description: "Create Lightweight Full-Stack Applications and Backends",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "MySQL",
     icon: SiMysql,
     description: "Build and Query Databases for various Applications",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Next.js",
     icon: SiNextdotjs,
     description:
       "Build Full-Stack Web Applications with Internal APIs and Vercel",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Node.js",
     icon: SiNodedotjs,
     description: "Support Server Development using JavaScript and TypeScript",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "OpenCV",
     icon: SiOpencv,
     description:
       "Support CNN Development, Text Recognition, and Edge Detection",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "PostgreSQL",
     icon: SiPostgresql,
     description:
       "Interact with Supabase Database Creating Queries, Functions, and Triggers",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "React",
     icon: SiReact,
     description: "Create Interactive Web Apps with Reusable Components",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "ROS2",
     icon: SiRos,
     description: "Interact with Robotics Systems and Create Control Models",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "SQLite3",
     icon: SiSqlite,
     description:
       "Used in Development for Database Interaction and Smaller Applications",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Scikit",
     icon: SiScikitlearn,
     description: "Used in Machine Learning Applications and Data Analysis",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "TailwindCSS",
     icon: SiTailwindcss,
     description: "Used to Style Web Apps using Combinational Classnames",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "TensorFlow",
     icon: SiTensorflow,
     description: "Used to Develop Neural Networks and Machine Learning Models",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Unity",
     icon: SiUnity,
     description: "Developed Video Games, Physics Simulations, and Prototypes",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Vite",
     icon: SiVite,
     description: "Develop Interactive Web Applications",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "AWS",
     icon: SiAmazonwebservices,
     description:
       "Support Media Heavy Web Applications, Data Storage, and CORS Handling",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Blender",
     icon: SiBlender,
     description: "Develop 3D Models, Animations, and Scenes",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Cloudflare",
     icon: SiCloudflare,
     description:
       "Routing Requests, Minimizing Data Egress, Setting Up Domain Security",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Cloudflare Workers",
     icon: SiCloudflareworkers,
     description:
       "Intercepting HTTP Requests, Routing Data Requests, Masking URLs",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "CMake",
     icon: SiCmake,
     description: "Create Build Systems for Cross System C++ Applications",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Eclipse",
     icon: SiEclipseide,
     description: "Used to create Java Packages",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Figma",
     icon: SiFigma,
     description:
       "Supports Design Process for Frontend Development and Project Organization",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Git",
     icon: SiGit,
     description: "Version Controlled, Collaborative, Tracked Development",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "GitHub",
     icon: SiGithub,
     description:
       "House Repositories, Display projects, and Organize Team Development",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Github Actions",
     icon: SiGithubactions,
     description:
       "Build Projects Cross System, Run Unit Tests, and Configure Releases",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "LaTeX",
     icon: SiLatex,
     description: "Create Parseable Visually Striking PDFs",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "npm",
     icon: SiNpm,
     description: "Integrate Various Packages for Supporting Applications",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Postman",
     icon: SiPostman,
     description: "Simulate API Calls to Verify Functionality and Structure",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "PostHog",
     icon: SiPosthog,
     description: "Gather Web Statistics for Data Driven Insights",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Powershell",
     icon: VscTerminalPowershell,
     description: "Simple Scripting and Supporting Development Flows",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Pycharm",
     icon: SiPycharm,
     description: "Environment used to Support Python Development and Testing",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Supabase",
     icon: SiSupabase,
     description:
       "Database, Authetication, and Authorization for Full-Stack Development",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Linux",
     icon: SiLinux,
     description:
       "Used as Development Environment, Terminal Familiarity, and Built For",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Vercel",
     icon: SiVercel,
     description:
       "Used for Application Deployment, Tracking Logs, and Integrating CI/CD",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "VS Code",
     icon: VscVscode,
     description:
       "Main Development Environment, Integrated Extensions accelerating development",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Windows",
     icon: FaWindows,
-    description: "Main OS, Built Tools for, Familiar with Terminal, and Usage",
-    skill_type: "Developer Tool",
+    description: "Main OS, Built Toolss for, Familiar with Terminal, and Usage",
+    skill_type: "Developer Tools",
   },
   {
     name: "GTest",
     icon: GrTest,
     description:
       "Used to Create Unit and Integration Tests for C++ Applications",
-    skill_type: "Framework",
+    skill_type: "Frameworks & Libraries",
   },
   {
     name: "Excel",
     icon: RiFileExcel2Fill,
     description: "Used for Data Organization and Analysis",
-    skill_type: "Developer Tool",
+    skill_type: "Developer Tools",
   },
   {
     name: "Raspberry Pi",
