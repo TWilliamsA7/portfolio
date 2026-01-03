@@ -2,6 +2,7 @@
 
 import { SkillTypes } from "@/data/skills";
 import { SkillsRow } from "@/components/skills/SkillRow";
+import { Separator } from "@/components/ui/separator";
 
 export default function SkillsSection() {
   return (
@@ -9,7 +10,7 @@ export default function SkillsSection() {
       <h1 className="text-2xl md:text-3xl font-bold text-primary text-center underline uppercase py-3">
         Skills
       </h1>
-      <hr />
+      <Separator className="my-8" />
       {SkillTypes.map((st, idx) => (
         <SkillsRow category={st} key={idx} index={idx} />
       ))}
