@@ -34,7 +34,7 @@ export function SkillsRow({ category, className }: SkillsRowProps) {
     const width = container.scrollWidth / 2;
 
     if (Math.abs(x.current) >= width) {
-      setDirection(-direction);
+      x.current = 0;
     }
 
     container.style.transform = `translateX(${x.current}px)`;
@@ -42,19 +42,28 @@ export function SkillsRow({ category, className }: SkillsRowProps) {
 
   return (
     <div
-      className={`relative overflow-hidden flex-col items-center ${className}`}
+      className={`flex flex-col items-center gap-4 ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <h2 className="text-xl text-primary font-bold py-4">{category}</h2>
-      <div ref={containerRef} className="flex w-1/2 gap-6 py-4">
-        {[...categorySkills, ...categorySkills].map((skill, idx) => (
-          <SkillIcon
-            key={`${skill.name}-${idx}`}
-            skill={skill}
-            className="m-2 text-primary h-8 w-8"
-          />
-        ))}
+      <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-center">
+        {category}
+      </h2>
+      <div className="relative w-full max-w-4xl overflow-hidden">
+        {/* Edge fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent z-10" />
+
+        {/* Scrolling track */}
+        <div ref={containerRef} className="flex w-max gap-8 py-4">
+          {[...categorySkills, ...categorySkills].map((skill, idx) => (
+            <SkillIcon
+              key={`${skill.name}-${idx}`}
+              skill={skill}
+              className="h-10 w-10 text-muted-foreground hover:text-primary"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
