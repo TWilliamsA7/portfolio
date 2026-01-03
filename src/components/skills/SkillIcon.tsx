@@ -7,6 +7,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { GrowOnHover } from "../layout/Animations";
 
 export default function SkillIcon({
   skill,
@@ -20,9 +21,11 @@ export default function SkillIcon({
   return (
     <div>
       <Tooltip delayDuration={300}>
-        <TooltipTrigger asChild>
-          <Icon className={className} />
-        </TooltipTrigger>
+        <GrowOnHover scale={1.2} duration={0.1}>
+          <TooltipTrigger asChild>
+            <Icon className={className} />
+          </TooltipTrigger>
+        </GrowOnHover>
         <TooltipContent side="top">
           <p>{skill.name}</p>
         </TooltipContent>
