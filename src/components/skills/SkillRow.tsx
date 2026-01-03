@@ -3,7 +3,7 @@
 "use client";
 
 import { Skill, skills, SkillType } from "@/data/skills";
-import { useAnimationFrame } from "motion/react";
+import { useAnimationFrame, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import SkillIcon from "@/components/skills/SkillIcon";
 import { cn } from "@/lib/utils";
@@ -16,12 +16,12 @@ interface SkillsRowProps {
 
 export function SkillsRow({ category, className, index }: SkillsRowProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const viewportRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<number>(1);
   const [shouldScroll, setShouldScroll] = useState(false);
 
   const x = useRef(0);
+  const shouldUseReducedMotion = useReducedMotion();
 
   const categorySkills: Skill[] = skills.filter(
     (s) => s.skill_type === category
@@ -33,7 +33,9 @@ export function SkillsRow({ category, className, index }: SkillsRowProps) {
   const MIN_ICONS_FOR_SCROLL: number = 6;
 
   useEffect(() => {
-    setShouldScroll(categorySkills.length > MIN_ICONS_FOR_SCROLL);
+    setShouldScroll(
+      !shouldUseReducedMotion && categorySkills.length > MIN_ICONS_FOR_SCROLL
+    );
   }, [categorySkills]);
 
   useEffect(() => {
@@ -61,6 +63,10 @@ export function SkillsRow({ category, className, index }: SkillsRowProps) {
 
     container.style.transform = `translateX(${x.current}px)`;
   });
+
+  if (displaySkills.length === 0) {
+    return null;
+  }
 
   return (
     <div
