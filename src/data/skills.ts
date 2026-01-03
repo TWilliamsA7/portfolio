@@ -59,16 +59,26 @@ import {
   VscVscode,
 } from "react-icons/vsc";
 
+export type SkillType =
+  | "Language"
+  | "Framework"
+  | "Developer Tool"
+  | "Hardware"
+  | "Other";
+
+export const SkillTypes: SkillType[] = [
+  "Language",
+  "Framework",
+  "Developer Tool",
+  "Hardware",
+  "Other",
+];
+
 export interface Skill {
   name: string;
   icon: IconType;
   description: string;
-  skill_type:
-    | "Language"
-    | "Framework"
-    | "Developer Tool"
-    | "Hardware"
-    | "Other";
+  skill_type: SkillType;
 }
 
 export const skills: Skill[] = [
