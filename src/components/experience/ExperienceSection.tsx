@@ -7,7 +7,7 @@ export default function ExperienceSection() {
   return (
     <section id="experience" className="relative py-24">
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="mb-16 text-3xl font-semibold tracking-tight">
+        <h2 className="mb-16 text-3xl font-semibold tracking-tight text-center">
           Experience
         </h2>
 
