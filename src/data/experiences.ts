@@ -16,6 +16,28 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    name: "Co-Programming Lead",
+    organization: "RCCF: Daydream7",
+    start_date: "August 2025",
+    end_date: "Present",
+    short_description: "Competitive Robotics",
+    location: "University of Central Florida",
+    long_description: "Insert long description here", // TODO
+    keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
+    skills: [], // TODO
+  },
+  {
+    name: "Undergraduate Learning Assistant",
+    organization: "University of Central Florida",
+    start_date: "August 2025",
+    end_date: "Present",
+    short_description: "Tutoring students in an introductory C course",
+    location: "University of Central Florida",
+    long_description: "Insert long description here", // TODO
+    keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
+    skills: [], // TODO
+  },
+  {
     name: "Software Engineering Intern",
     organization: "kinkofa",
     start_date: "June 2025",
@@ -24,7 +46,29 @@ export const experiences: Experience[] = [
       "Fullstack development supporting database and cloud integration",
     location: "Virtual",
     long_description: "Insert long description here", // TODO: Description
-    keypoints: ["keypoint 1, keypoint 2, keypoint 3"], // TODO: Keypoints
+    keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO: Keypoints
     skills: [],
+  },
+  {
+    name: "Undergraduate Research Assistant",
+    organization: "Laboratory for Interaction of Machine and Brain (LIMB)",
+    start_date: "January 2025",
+    end_date: "April 2025",
+    short_description: "Robotics Research",
+    location: "University of Central Florida",
+    long_description: "Insert long description here", // TODO
+    keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
+    skills: [], // TODO
+  },
+  {
+    name: "Embedded Systems Division Lead",
+    organization: "ACM-UCF: Project Kestrel",
+    start_date: "September 2024",
+    end_date: "April 2025",
+    short_description: "Drone Project",
+    location: "University of Central Florida",
+    long_description: "Insert long description here", // TODO
+    keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
+    skills: [], // TODO
   },
 ];
