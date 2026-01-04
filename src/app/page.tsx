@@ -4,6 +4,7 @@ import AboutSection from "@/components/homepage/about-section";
 
 import { FeaturedProjectsSection } from "@/components/projects/featured-projects-section";
 import SkillsSection from "@/components/skills/SkillsSection";
+import ExperienceSection from "@/components/experience/ExperienceSection";
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <FeaturedProjectsSection />
 
       <SkillsSection />
+
+      <ExperienceSection />
 
       {/* Placeholder content to enable scrolling and test the navbar interaction */}
       <div className="h-[200vh] flex items-center justify-center">
