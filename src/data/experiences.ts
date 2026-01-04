@@ -5,6 +5,7 @@ import { Skill } from "@/data/skills";
 export interface Experience {
   name: string;
   organization: string;
+  image: string;
   start_date: string;
   end_date: string;
   short_description: string;
@@ -18,6 +19,7 @@ export const experiences: Experience[] = [
   {
     name: "Co-Programming Lead",
     organization: "RCCF: Daydream7",
+    image: "/project-images/Chip8.jpg",
     start_date: "August 2025",
     end_date: "Present",
     short_description: "Competitive Robotics",
@@ -29,6 +31,7 @@ export const experiences: Experience[] = [
   {
     name: "Undergraduate Learning Assistant",
     organization: "University of Central Florida",
+    image: "/project-images/Chip8.jpg",
     start_date: "August 2025",
     end_date: "Present",
     short_description: "Tutoring students in an introductory C course",
@@ -40,6 +43,7 @@ export const experiences: Experience[] = [
   {
     name: "Software Engineering Intern",
     organization: "kinkofa",
+    image: "/project-images/Chip8.jpg",
     start_date: "June 2025",
     end_date: "Present",
     short_description:
@@ -52,6 +56,7 @@ export const experiences: Experience[] = [
   {
     name: "Undergraduate Research Assistant",
     organization: "Laboratory for Interaction of Machine and Brain (LIMB)",
+    image: "/project-images/Chip8.jpg",
     start_date: "January 2025",
     end_date: "April 2025",
     short_description: "Robotics Research",
@@ -63,6 +68,7 @@ export const experiences: Experience[] = [
   {
     name: "Embedded Systems Division Lead",
     organization: "ACM-UCF: Project Kestrel",
+    image: "/project-images/Chip8.jpg",
     start_date: "September 2024",
     end_date: "April 2025",
     short_description: "Drone Project",
