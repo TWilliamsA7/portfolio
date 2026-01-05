@@ -15,13 +15,13 @@ import {
 
 import { ThemeToggleSwitch } from "@/components/layout/theme-toggle";
 import { GrowOnHover } from "./Animations";
+import Contact from "@/components/layout/Contact";
 
 // Navigation Links Data
 const navLinks = [
   { href: "/", title: "Home", icon: HomeIcon },
   { href: "/projects", title: "Projects", icon: Code },
   { href: "/resume.pdf", title: "Resume", icon: FileUser },
-  { href: "/contact", title: "Contact", icon: Mail },
 ];
 
 export default function MainNavbar() {
@@ -85,6 +85,7 @@ export default function MainNavbar() {
               </Link>
             );
           })}
+          <Contact />
           <ThemeToggleSwitch />
         </div>
 
