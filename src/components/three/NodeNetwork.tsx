@@ -4,18 +4,37 @@ import { Points, PointMaterial } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { Group } from "three";
+import { PerformanceTier } from "@/components/three/usePerformanceTier";
 
-const NODE_COUNT: number = 800;
 const MAX_DISTANCE: number = 1;
-const MAX_CONNECTIONS_PER_NODE: number = 3;
 
-export default function NodeNetwork() {
+interface NodeNeworkProps {
+  tier: PerformanceTier;
+}
+
+const SETTINGS = {
+  high: {
+    nodes: 900,
+    maxConnections: 3,
+  },
+  medium: {
+    nodes: 500,
+    maxConnections: 2,
+  },
+  low: {
+    nodes: 200,
+    maxConnections: 1,
+  },
+} as const;
+
+export default function NodeNetwork({ tier }: NodeNeworkProps) {
   const ref = useRef<Group | null>(null);
+  const { nodes, maxConnections } = SETTINGS[tier];
 
   const positions = useMemo(() => {
-    const arr = new Float32Array(NODE_COUNT * 3);
+    const arr = new Float32Array(nodes * 3);
 
-    for (let i = 0; i < NODE_COUNT; i++) {
+    for (let i = 0; i < nodes; i++) {
       arr[i * 3] = (Math.random() - 0.5) * 16;
       arr[i * 3 + 1] = Math.random() * 6;
       arr[i * 3 + 2] = (Math.random() - 0.5) * 16;
@@ -27,15 +46,15 @@ export default function NodeNetwork() {
   const connectionPositions = useMemo(() => {
     const connections: number[] = [];
 
-    for (let i = 0; i < NODE_COUNT; i++) {
+    for (let i = 0; i < nodes; i++) {
       let connectionsForNode: number = 0;
 
       const ix: number = positions[i * 3];
       const iy: number = positions[i * 3 + 1];
       const iz: number = positions[i * 3 + 2];
 
-      for (let j = i + 1; j < NODE_COUNT; j++) {
-        if (connectionsForNode >= MAX_CONNECTIONS_PER_NODE) break;
+      for (let j = i + 1; j < nodes; j++) {
+        if (connectionsForNode >= maxConnections) break;
 
         const jx: number = positions[j * 3];
         const jy: number = positions[j * 3 + 1];

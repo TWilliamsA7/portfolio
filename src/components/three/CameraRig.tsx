@@ -5,13 +5,14 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { RefObject, useEffect, useRef } from "react";
 import { Vector3 } from "three";
+import { PerformanceTier } from "@/components/three/usePerformanceTier";
 
-export default function CameraRig() {
+interface CameraRigProps {
+  tier: PerformanceTier;
+}
+
+export default function CameraRig({ tier }: CameraRigProps) {
   const { camera } = useThree();
-
-  const isTouch: boolean =
-    typeof window !== "undefined" &&
-    ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
   const scrollProgress: RefObject<number> = useRef<number>(0);
   const targetPosition: RefObject<Vector3> = useRef<Vector3>(new Vector3());
@@ -32,11 +33,17 @@ export default function CameraRig() {
   }, []);
 
   useFrame(() => {
-    if (isTouch) return;
+    if (tier === "low") return;
+
+    const depthMultiplier = tier === "medium" ? 0.6 : 1;
 
     const t: number = scrollProgress.current;
 
-    targetPosition.current.set(0, 3 - t * 2, 8 - t * 3);
+    targetPosition.current.set(
+      0,
+      3 - t * 2 * depthMultiplier,
+      8 - t * 3 * depthMultiplier
+    );
 
     camera.position.lerp(targetPosition.current, 0.1);
     camera.lookAt(0, 1.5, 0);
