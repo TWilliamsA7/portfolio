@@ -55,6 +55,9 @@ export default function ExperienceCard({
 
             <div className="mt-3 flex items-center gap-2">
               {/* Add more metadata here */}
+              <p className="text-sm text-muted-foreground">
+                {experience.short_description}
+              </p>
               <Button
                 variant="ghost"
                 size="sm"
