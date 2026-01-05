@@ -18,7 +18,6 @@ export default function BackgroundCanvas() {
     <div className="fixed inset-0 -z-10">
       <Canvas
         camera={{ position: [0, 3, 8], fov: 60 }}
-        frameloop={tier === "low" ? "never" : "always"}
         dpr={Math.min(devicePixelRatio, tier === "medium" ? 1.25 : 1.5)}
         gl={{ antialias: false }}
       >
