@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/contexts/theme-provider";
 import MainNavbar from "@/components/layout/main-navbar";
 import BackgroundCanvas from "@/components/three/BackgroundCanvas";
 import { Toaster } from "@/components/ui/sonner";
+import MainFooter from "@/components/layout/main-footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,6 +105,7 @@ export default function RootLayout({
           <BackgroundCanvas />
           <MainNavbar />
           {children}
+          <MainFooter />
           <Toaster />
         </ThemeProvider>
       </body>
