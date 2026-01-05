@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/contexts/theme-provider";
 import MainNavbar from "@/components/layout/main-navbar";
 import BackgroundCanvas from "@/components/three/BackgroundCanvas";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -103,6 +104,7 @@ export default function RootLayout({
           <BackgroundCanvas />
           <MainNavbar />
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
