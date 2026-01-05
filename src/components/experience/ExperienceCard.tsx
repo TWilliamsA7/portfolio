@@ -8,7 +8,7 @@ import SkillIcon from "@/components/skills/SkillIcon";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { useState } from "react";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import { GrowOnHover } from "../layout/Animations";
 
 export default function ExperienceCard({
@@ -19,22 +19,30 @@ export default function ExperienceCard({
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <GrowOnHover duration={0.2} scale={1.03}>
-      <Card className="overflow-hidden">
-        <div className="grid md:grid-cols-[180px_1fr]">
-          {/* Image */}
-          <div className="relative h-40 md:h-full">
-            <Image
-              src={experience.image}
-              alt={`${experience.name}-${experience.organization}`}
-              fill
-              className="object-fill"
-            />
-          </div>
-          <div className="p-6">
-            <div className="flex items-start justify-between gap-4">
+    <GrowOnHover duration={0.1} scale={1.03}>
+      <Card className="overflow-hidden border-none bg-transparent shadow-none">
+        <div
+          className="relative aspect-[16/9] w-full cursor-pointer"
+          onClick={() => setExpanded(!expanded)}
+        >
+          {/* Image Header */}
+          <Image
+            src={experience.image}
+            alt={`${experience.name}-${experience.organization}`}
+            fill
+            className="object-cover"
+            priority={false}
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
+
+          {/* Metadata Overlay */}
+          <div className="absolute inset-x-0 bottom-0 p-6">
+            <div className="flex items-center justify-between gap-4">
               <div>
-                <h3 className="text-lg font-semibold">{experience.name}</h3>
+                <h3 className="text-lg font-semibold leading-tight">
+                  {experience.name}
+                </h3>
                 <p className="text-sm text-muted-foreground">
                   {experience.organization}
                 </p>
@@ -45,39 +53,44 @@ export default function ExperienceCard({
               </span>
             </div>
 
-            <p className="text-sm">{experience.short_description}</p>
-
-            {/* Collapsible Details */}
-            <motion.div
-              initial={false}
-              animate={{ height: expanded ? "auto" : "4.5rem", opacity: 1 }}
-              className="mt-4 overflow-hidden"
-            >
-              <p className="text-sm">{experience.long_description}</p>
-
-              <ul className="mt-4 space-y-2 text-sm">
-                {experience.keypoints.map((k, idx) => (
-                  <li key={idx} className="list-disc ml-4">
-                    {k}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <Button
-              variant="ghost"
-              size="sm"
-              className="mt-2 px-0"
-              onClick={() => setExpanded(!expanded)}
-            >
-              {expanded ? "Show less" : "Read more"}
-            </Button>
-
-            {experience.skills.map((skill, idx) => (
-              <SkillIcon skill={skill} key={idx} />
-            ))}
+            <div className="mt-3 flex items-center gap-2">
+              {/* Add more metadata here */}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="ml-auto px-0 text-sm"
+              >
+                {expanded ? "Hide details" : "Show more"}
+              </Button>
+            </div>
           </div>
         </div>
+
+        {/* Expansion Details */}
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="overflow-hidden"
+            >
+              <div className="bg-card px-6 py-5">
+                <p className="text-sm text-muted-foreground">
+                  {experience.long_description}
+                </p>
+                <ul className="space-y-2 text-sm">
+                  {experience.keypoints.map((keypoint, idx) => (
+                    <li key={idx} className="list-disc ml-4">
+                      {keypoint}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Card>
     </GrowOnHover>
   );
