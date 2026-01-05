@@ -91,6 +91,7 @@ export default function MainNavbar() {
 
         {/* --- Mobile Navigation (Sheet) --- */}
         <div className="md:hidden flex items-center space-x-2">
+          <Contact />
           <ThemeToggleSwitch />
           <Sheet>
             <SheetTrigger asChild>
