@@ -56,7 +56,7 @@ export const experiences: Experience[] = [
   {
     name: "Undergraduate Research Assistant",
     organization: "Laboratory for Interaction of Machine and Brain (LIMB)",
-    image: "/project-images/Chip8.jpg",
+    image: "/project-images/EMSim.jpg",
     start_date: "January 2025",
     end_date: "April 2025",
     short_description: "Robotics Research",
