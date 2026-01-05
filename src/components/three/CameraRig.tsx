@@ -9,6 +9,10 @@ import { Vector3 } from "three";
 export default function CameraRig() {
   const { camera } = useThree();
 
+  const isTouch: boolean =
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
   const scrollProgress: RefObject<number> = useRef<number>(0);
   const targetPosition: RefObject<Vector3> = useRef<Vector3>(new Vector3());
 
@@ -28,11 +32,13 @@ export default function CameraRig() {
   }, []);
 
   useFrame(() => {
+    if (isTouch) return;
+
     const t: number = scrollProgress.current;
 
-    targetPosition.current.set(0, 3 - t * 1.5, 8 - t * 2.5);
+    targetPosition.current.set(0, 3 - t * 2, 8 - t * 3);
 
-    camera.position.lerp(targetPosition.current, 0.05);
+    camera.position.lerp(targetPosition.current, 0.1);
     camera.lookAt(0, 1.5, 0);
   });
 
