@@ -1,11 +1,14 @@
 // src/components/three/NodeNetwork.tsx
 
 import { Points, PointMaterial } from "@react-three/drei";
-import { useMemo } from "react";
+import { useFrame } from "@react-three/fiber";
+import { useMemo, useRef } from "react";
+import { Group } from "three";
 
 const NODE_COUNT: number = 800;
 
 export default function NodeNetwork() {
+  const ref = useRef<Group | null>(null);
   const positions = useMemo(() => {
     const arr = new Float32Array(NODE_COUNT * 3);
 
@@ -18,15 +21,22 @@ export default function NodeNetwork() {
     return arr;
   }, []);
 
+  useFrame(({ clock }) => {
+    if (!ref.current) return;
+    ref.current.rotation.y = clock.elapsedTime * 0.03;
+  });
+
   return (
-    <Points positions={positions}>
-      <PointMaterial
-        size={0.05}
-        color="#ffffff"
-        transparent
-        opacity={0.6}
-        depthWrite={false}
-      />
-    </Points>
+    <group ref={ref}>
+      <Points positions={positions}>
+        <PointMaterial
+          size={0.05}
+          color="#ffffff"
+          transparent
+          opacity={0.6}
+          depthWrite={false}
+        />
+      </Points>
+    </group>
   );
 }
