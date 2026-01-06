@@ -1,5 +1,7 @@
 // src/app/experience/page.tsx
 
+"use client";
+
 import ExperienceSection from "@/components/experience/ExperienceSection";
 import ResumeButton from "@/components/homepage/resume-button";
 
