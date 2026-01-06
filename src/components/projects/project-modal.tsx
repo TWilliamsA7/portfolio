@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { X, ExternalLink, Check, FolderGit } from "lucide-react";
 import { type Project } from "@/data/projects";
 import Image from "next/image";
+import SkillIcon from "../skills/SkillIcon";
 
 interface ProjectModalProps {
   project: Project;
@@ -95,7 +96,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   key={index}
                   className="px-3 py-1.5 bg-border text-primary rounded-lg border border-purple-500/30"
                 >
-                  {tech}
+                  <SkillIcon skill={tech} className="h-6 w-6" />
                 </span>
               ))}
             </div>
