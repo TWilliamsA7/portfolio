@@ -34,21 +34,21 @@ export default function ExperienceCard({
             priority={false}
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ring/80 via-ring/30 to-transparent" />
 
           {/* Metadata Overlay */}
           <div className="absolute inset-x-0 bottom-0 p-6">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <h3 className="text-lg font-semibold leading-tight">
+                <h3 className="text-lg font-bold leading-tight">
                   {experience.name}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground font-semibold">
                   {experience.organization}
                 </p>
               </div>
 
-              <span className="text-sm text-muted-foreground whitespace-nowrap">
+              <span className="text-md text-muted-foreground whitespace-nowrap">
                 {experience.start_date} - {experience.end_date}
               </span>
             </div>
@@ -79,7 +79,7 @@ export default function ExperienceCard({
               transition={{ duration: 0.35, ease: "easeOut" }}
               className="overflow-hidden"
             >
-              <div className="bg-card px-6 py-5">
+              <div className="bg-card px-6 py-5 rounded-2xl">
                 <p className="text-sm text-muted-foreground">
                   {experience.long_description}
                 </p>
