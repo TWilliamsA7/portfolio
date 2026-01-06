@@ -23,7 +23,7 @@ export function FeaturedProjectsSection() {
           <h2 className="text-3xl sm:text-4xl text-white mb-4 text-center">
             Featured Projects
           </h2>
-          <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
             A selection of projects showcasing my skills in full-stack
             development, embedded systems, and software engineering
           </p>
