@@ -1,6 +1,22 @@
 // src/data/experiences.ts
 
-import { Skill } from "@/data/skills";
+import {
+  ArduinoSkill,
+  CircuitDesignSkill,
+  CppSkill,
+  CSkill,
+  GithubSkill,
+  LinuxSkill,
+  NextjsSkill,
+  PythonSkill,
+  ROS2Skill,
+  Skill,
+  SupabaseSkill,
+  TailwindCSSSkill,
+  TypeScriptSkill,
+  VercelSkill,
+  VSCodeSkill,
+} from "@/data/skills";
 
 export interface Experience {
   name: string;
@@ -26,7 +42,7 @@ export const experiences: Experience[] = [
     location: "University of Central Florida",
     long_description: "Insert long description here", // TODO
     keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
-    skills: [], // TODO
+    skills: [CppSkill, GithubSkill, VSCodeSkill],
   },
   {
     name: "Undergraduate Learning Assistant",
@@ -38,7 +54,7 @@ export const experiences: Experience[] = [
     location: "University of Central Florida",
     long_description: "Insert long description here", // TODO
     keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
-    skills: [], // TODO
+    skills: [CSkill, VSCodeSkill],
   },
   {
     name: "Software Engineering Intern",
@@ -51,7 +67,13 @@ export const experiences: Experience[] = [
     location: "Virtual",
     long_description: "Insert long description here", // TODO: Description
     keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO: Keypoints
-    skills: [],
+    skills: [
+      TypeScriptSkill,
+      NextjsSkill,
+      TailwindCSSSkill,
+      VercelSkill,
+      SupabaseSkill,
+    ],
   },
   {
     name: "Undergraduate Research Assistant",
@@ -63,7 +85,7 @@ export const experiences: Experience[] = [
     location: "University of Central Florida",
     long_description: "Insert long description here", // TODO
     keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
-    skills: [], // TODO
+    skills: [PythonSkill, ROS2Skill, LinuxSkill],
   },
   {
     name: "Embedded Systems Division Lead",
@@ -75,6 +97,6 @@ export const experiences: Experience[] = [
     location: "University of Central Florida",
     long_description: "Insert long description here", // TODO
     keypoints: ["keypoint 1", "keypoint 2", "keypoint 3"], // TODO
-    skills: [], // TODO
+    skills: [CSkill, ArduinoSkill, CircuitDesignSkill],
   },
 ];
