@@ -213,6 +213,7 @@ export const projects: Project[] = [
     image: "/project-images/foldersort.jpg",
     icon: Folder,
     githubUrl: "https://github.com/TWilliamsA7/folder-sort",
+    liveUrl: "https://github.com/TWilliamsA7/folder-sort/releases/tag/v1.0.1",
     features: [
       "Command Line Interface",
       "Customizable rules via YAML",
