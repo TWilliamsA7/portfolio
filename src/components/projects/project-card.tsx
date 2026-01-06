@@ -14,12 +14,11 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
       onClick={onClick}
       className="group bg-primary rounded-xl overflow-hidden border-muted border-2 hover:border-4 hover:border-purple-500/50 transition-all cursor-pointer hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1"
     >
-      <div className="relative h-48 overflow-hidden bg-primary">
+      <div className="relative aspect-[16/9] overflow-hidden bg-primary">
         <Image
           src={project.image ? project.image : "/globe.svg"}
           alt={project.title}
           fill
-          sizes="(max-width: 768px) 100vw, 33vw"
           className="group-hover:scale-110 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-10"></div>
