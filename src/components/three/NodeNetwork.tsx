@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { Group } from "three";
 import { PerformanceTier } from "@/components/three/usePerformanceTier";
+import { useTheme } from "next-themes";
 
 const MAX_DISTANCE: number = 1;
 
@@ -28,6 +29,7 @@ const SETTINGS = {
 } as const;
 
 export default function NodeNetwork({ tier }: NodeNeworkProps) {
+  const { theme } = useTheme();
   const ref = useRef<Group | null>(null);
   const { nodes, maxConnections } = SETTINGS[tier];
 
@@ -91,13 +93,17 @@ export default function NodeNetwork({ tier }: NodeNeworkProps) {
             attach="attributes-position"
           />
         </bufferGeometry>
-        <lineBasicMaterial color="#60a5fa" transparent opacity={0.15} />
+        <lineBasicMaterial
+          color={theme === "dark" ? "#60a5fa" : "#000000"}
+          transparent
+          opacity={0.15}
+        />
       </lineSegments>
 
       <Points positions={positions}>
         <PointMaterial
           size={0.05}
-          color="#ffffff"
+          color={theme === "dark" ? "#ffffff" : "#000000"}
           transparent
           opacity={0.6}
           depthWrite={false}
