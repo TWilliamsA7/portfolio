@@ -1,7 +1,13 @@
 // src/data/skills.ts
 
 import { IconType } from "react-icons";
-import { FaJava, FaMicrochip, FaRaspberryPi, FaWindows } from "react-icons/fa";
+import {
+  FaCube,
+  FaJava,
+  FaMicrochip,
+  FaRaspberryPi,
+  FaWindows,
+} from "react-icons/fa";
 import { GrTest } from "react-icons/gr";
 import { HiCpuChip } from "react-icons/hi2";
 import { RiFileExcel2Fill } from "react-icons/ri";
@@ -24,14 +30,17 @@ import {
   SiGit,
   SiGithub,
   SiGithubactions,
+  SiGnubash,
   SiGo,
   SiGooglecolab,
+  SiGooglegemini,
   SiHtml5,
   SiJavascript,
   SiJupyter,
   SiLatex,
   SiLinux,
   SiMatrix,
+  SiMediapipe,
   SiMysql,
   SiNextdotjs,
   SiNodedotjs,
@@ -562,6 +571,38 @@ export const FPGASkill: Skill = {
   color: "#7a80a3",
 };
 
+export const SDL2Skill: Skill = {
+  name: "SDL2",
+  icon: FaCube,
+  description: "Used for 2D interfaces and 3D Renders",
+  skill_type: "Frameworks & Libraries",
+  color: "#425A70",
+};
+
+export const GeminiAPISkill: Skill = {
+  name: "Gemini API",
+  icon: SiGooglegemini,
+  description: "Used to support AI integration apps",
+  skill_type: "Developer Tools",
+  color: "#3174F1",
+};
+
+export const BashSkill: Skill = {
+  name: "Bash",
+  icon: SiGnubash,
+  description: "Used for automation, searching, and scheduling",
+  skill_type: "Languages",
+  color: "#83C149",
+};
+
+export const MediapipeSkill: Skill = {
+  name: "Mediapipe",
+  icon: SiMediapipe,
+  description: "Used in supporting computer vision projects",
+  skill_type: "Frameworks & Libraries",
+  color: "#0097A7",
+};
+
 export const languageSkills: Skill[] = [
   CSkill,
   CsSkill,
@@ -575,6 +616,7 @@ export const languageSkills: Skill[] = [
   PythonSkill,
   TypeScriptSkill,
   VerilogSkill,
+  BashSkill,
 ];
 
 export const libaryFrameworkSkills: Skill[] = [
@@ -596,6 +638,9 @@ export const libaryFrameworkSkills: Skill[] = [
   UnitySkill,
   ViteSkill,
   GTestSkill,
+  SDL2Skill,
+  GeminiAPISkill,
+  MediapipeSkill,
 ];
 
 export const devToolSkills: Skill[] = [
