@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Code, FileUser, HomeIcon, Mail, Menu, MenuIcon } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  Code,
+  FileUser,
+  HomeIcon,
+  Mail,
+  Menu,
+  MenuIcon,
+} from "lucide-react";
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -22,6 +30,7 @@ const navLinks = [
   { href: "/", title: "Home", icon: HomeIcon },
   { href: "/projects", title: "Projects", icon: Code },
   { href: "/resume.pdf", title: "Resume", icon: FileUser },
+  { href: "/experience", title: "Experience", icon: BriefcaseBusiness },
 ];
 
 export default function MainNavbar() {
