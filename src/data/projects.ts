@@ -13,16 +13,52 @@ import {
   ListCheck,
   Wifi,
   Eye,
+  LucideIcon,
 } from "lucide-react";
+import {
+  ArduinoSkill,
+  BashSkill,
+  CircuitDesignSkill,
+  CMakeSkill,
+  CppSkill,
+  CSkill,
+  CssSkill,
+  DjangoSkill,
+  EclipseSkill,
+  ExcelSkill,
+  FastAPISkill,
+  FlaskSkill,
+  GeminiAPISkill,
+  GithubActionsSkill,
+  GoogleColabSkill,
+  GTestSkill,
+  HTMLSkill,
+  JavaScriptSkill,
+  JavaSkill,
+  JupyterSkill,
+  MediapipeSkill,
+  NextjsSkill,
+  OpenCVSkill,
+  PythonSkill,
+  SDL2Skill,
+  Skill,
+  SQLiteSkill,
+  SupabaseSkill,
+  TailwindCSSSkill,
+  TensorFlowSkill,
+  TypeScriptSkill,
+  VercelSkill,
+  VerilogSkill,
+} from "@/data/skills";
 
 export interface Project {
   id: string;
   title: string;
   description: string;
   fullDescription: string;
-  technologies: string[];
+  technologies: Skill[];
   image: string;
-  icon: any;
+  icon: LucideIcon;
   githubUrl?: string;
   liveUrl?: string;
   features: string[];
@@ -37,7 +73,7 @@ export const projects: Project[] = [
       "An introductory project utilizing OOP principles alongside matrix manipulation to render simple 3D models",
     fullDescription:
       "Built a 3D Viewport for visualizing simple models derived from triangles. Implemented Matrix and Point Classes to describe the object and perfomr the necessary option to render and manipulate the model in the viewport including lighting. For the demo, a tetrahedron was created and subdivided to create a sphere.",
-    technologies: ["Java", "Swing"],
+    technologies: [JavaSkill, EclipseSkill],
     image: "/project-images/Java3DRenderer.jpg",
     icon: Rotate3D,
     githubUrl: "https://github.com/TWilliamsA7/3DRenderer",
@@ -54,7 +90,14 @@ export const projects: Project[] = [
     description:
       "A lightweight full stack application for transcribing real-time American Sign Language into text via a convolutional neural network.",
     fullDescription: "<Insert Full Description>", // TODO: FILL IN DESCRIPTION
-    technologies: ["Python", "Jupyter", "OpenCV", "TensorFlow", "Google Colab"],
+    technologies: [
+      PythonSkill,
+      JupyterSkill,
+      OpenCVSkill,
+      TensorFlowSkill,
+      GoogleColabSkill,
+      FlaskSkill,
+    ],
     image: "/globe.svg", // TODO: ADD IMAGE
     icon: HandMetal,
     githubUrl: "https://github.com/TWilliamsA7/asl-neural-app",
@@ -72,7 +115,7 @@ export const projects: Project[] = [
       "A full implementation of the classic game of Chess with some extra helpful features.",
     fullDescription:
       "This project is an implementation of Chess in Java using Swing for the UI. This is a fully playable version of chess including promotion, castling, en passant, check, and checkmate. This project was a learning experience in Java but more importantly OOP design princples allowing for organized, safer code.",
-    technologies: ["Java", "Swing"],
+    technologies: [JavaSkill, EclipseSkill],
     image: "/project-images/ChessProj.jpg",
     icon: Puzzle,
     githubUrl: "https://github.com/TWilliamsA7/Chess",
@@ -89,7 +132,7 @@ export const projects: Project[] = [
     description: "C-based implementation of the CHIP8 Virtual Machine",
     fullDescription:
       "This project is an implementation of the CHIP8 Virtual Machine following the original CHIP8 specification. Created a digital structure to recreate the opcode processing and memory interactions of the original Chip8. Using SDL2 to create a graphical interface for the operations taking place. As each opcode is processed, it is logged for debugging purposes and validation.",
-    technologies: ["C", "SDL2"],
+    technologies: [CSkill, SDL2Skill],
     image: "/project-images/Chip8.jpg",
     icon: Cpu,
     githubUrl: "https://github.com/TWilliamsA7/Chip8Emulator",
@@ -108,7 +151,7 @@ export const projects: Project[] = [
       "Implemented and analyzed various error correction algorithms in Verilog modules.",
     fullDescription:
       "This project was initially for my COT3100 Intro to Discrete Structures Final Project. The purpose of this work is to analyze and implement various methods to address errors in digital circuits. These methods were implemented in Verilog and validated through testbenches. Through these implementations and analysis, I wrote a paper on my findings and work.",
-    technologies: ["Verilog", "SystemVerilog", "GTKWave", "Icarus"],
+    technologies: [VerilogSkill],
     image: "/project-images/ECDC.jpg",
     icon: Binary,
     githubUrl: "https://github.com/TWilliamsA7/DigitalErrorAnalysis",
@@ -127,7 +170,7 @@ export const projects: Project[] = [
       "Created a simulator for electromagnetic interactions between particles.",
     fullDescription:
       "This project is a 3D renderer built using the SDL2 Library in C++. The objects placed within this renderer have physical properties and interactions. Static fields can also be imported into the scene for more complex interactions. A scene.json file must included in the command line to provide instructions on how to generate the scene.",
-    technologies: ["C++", "SDL2", "CMake"],
+    technologies: [CppSkill, SDL2Skill, CMakeSkill],
     image: "/project-images/EMSim.jpg",
     icon: Atom,
     githubUrl: "https://github.com/TWilliamsA7/EMsim",
@@ -147,7 +190,7 @@ export const projects: Project[] = [
       "Created Web Application for tracking finances, budgets, transactions, and fund allocation.",
     fullDescription:
       "This project was built to serve as a personal means for budgeting and tracking expenses. It is a web application built using the Django framework and uses a sqlite3 database given its scale. There is potential of furthering and deploying the project in the future.",
-    technologies: ["Python", "Django", "Sqlite3", "HTML", "CSS"],
+    technologies: [PythonSkill, DjangoSkill, SQLiteSkill, HTMLSkill, CssSkill],
     image: "/project-images/financetracker.jpg",
     icon: CircleDollarSign,
     githubUrl: "https://github.com/TWilliamsA7/FinanceTracker",
@@ -164,7 +207,7 @@ export const projects: Project[] = [
     title: "Foldersort",
     description: "<insert description>", // TODO: ADD DESCRIPTION
     fullDescription: "<insert full description>", // TODO: ADD FULL DESCRIPTION
-    technologies: ["C++", "CMake", "GoogleTest", "Github Actions"],
+    technologies: [CppSkill, CMakeSkill, GTestSkill, GithubActionsSkill],
     image: "", // TODO: ADD IMAGES
     icon: Folder,
     githubUrl: "https://github.com/TWilliamsA7/folder-sort",
@@ -181,7 +224,7 @@ export const projects: Project[] = [
     description: "Team project developing an autonomous water vessel",
     fullDescription:
       "This is a repository for a school project in which a water vessel must travel across a fountain autonomously. Our boat used a twin motor differential drivetrain as opposed to a rudder. Using a gyroscope and arduino nano, the boat propelled itself along a predefined course.",
-    technologies: ["Arduino", "OnShape", "Circuitry", "Breadboarding"],
+    technologies: [ArduinoSkill, CircuitDesignSkill],
     image: "/project-images/GNORBoat.jpg",
     icon: Ship,
     githubUrl: "https://github.com/TWilliamsA7/GNORBoat",
@@ -199,12 +242,11 @@ export const projects: Project[] = [
     fullDescription:
       "Growcery uses AI and computer vision to analyze images of crops and produce. With a single photo, users can instantly learn about freshness, quality, or possible diseases, along with treatment advice or storage recommendations. Users can then keep track of these produce/crops within the app to make sure they are used before their expiration date.",
     technologies: [
-      "Typescript",
-      "Next.js",
-      "Gemini API",
-      "Supabase",
-      "PyTorch",
-      "FastAPI",
+      TypeScriptSkill,
+      NextjsSkill,
+      GeminiAPISkill,
+      SupabaseSkill,
+      FastAPISkill,
     ],
     image: "/project-images/Growcery.jpg",
     icon: Carrot,
@@ -222,7 +264,13 @@ export const projects: Project[] = [
     title: "This Portfolio!",
     description: "This portfolio is a showcase of my work and experience.",
     fullDescription: "<Insert Full Description>", // TODO: Add Full Description
-    technologies: ["Typescript", "Next.js", "Vercel", "TailwindCSS", "Bash"],
+    technologies: [
+      TypeScriptSkill,
+      NextjsSkill,
+      VercelSkill,
+      TailwindCSSSkill,
+      BashSkill,
+    ],
     image: "", // TODO: ADD IMAGE
     icon: BriefcaseBusiness,
     githubUrl: "https://github.com/TWilliamsA7/portfolio",
@@ -236,7 +284,7 @@ export const projects: Project[] = [
     description: "A simply app to manage tasks built in Python",
     fullDescription:
       "This project is a task management application with a simple GUI made with Tkinter. Tasks are formatted in saved within a text file for easy retrieval.",
-    technologies: ["Python", "Tkinter"],
+    technologies: [PythonSkill],
     image: "/project-images/taskcatalogue.jpg",
     icon: ListCheck,
     githubUrl: "https://github.com/TWilliamsA7/Task-Manager",
@@ -251,12 +299,12 @@ export const projects: Project[] = [
     fullDescription:
       "A React app that reads words aloud from a camera feed, controlled by hand gestures from legally blind users. Based on MediaPipe, OCR, and custom gesture detection, this tool empowers visually impaired users to access visual text in their environment.",
     technologies: [
-      "Javascript",
-      "OpenCV",
-      "Python",
-      "Gemini API",
-      "Flask",
-      "Mediapipe",
+      JavaScriptSkill,
+      OpenCVSkill,
+      PythonSkill,
+      GeminiAPISkill,
+      FlaskSkill,
+      MediapipeSkill,
     ],
     image: "", // TODO: ADD IMAGE
     icon: Eye,
@@ -275,7 +323,7 @@ export const projects: Project[] = [
     description:
       "An analysis of wi-fi signals on my college campus to determine potential variance",
     fullDescription: "<Insert Full Description>", // TODO: ADD FULL DESCRIPTION
-    technologies: ["Python", "Numpy", "Matplotlib", "Pandas", "Excel"],
+    technologies: [PythonSkill, ExcelSkill],
     image: "", // TODO: ADD IMAGE
     icon: Wifi,
     githubUrl: "https://github.com/TWilliamsA7/wifi-analyze-scripts",
