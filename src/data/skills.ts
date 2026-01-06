@@ -25,8 +25,10 @@ import {
   SiGithub,
   SiGithubactions,
   SiGo,
+  SiGooglecolab,
   SiHtml5,
   SiJavascript,
+  SiJupyter,
   SiLatex,
   SiLinux,
   SiMatrix,
@@ -184,6 +186,22 @@ export const ArduinoSkill: Skill = {
   description: "Autonomous vessels and robotics",
   skill_type: "Hardware",
   color: "#00878F",
+};
+
+export const GoogleColabSkill: Skill = {
+  name: "Google Colab",
+  icon: SiGooglecolab,
+  description: "Machine Learning Pipeline and Training",
+  skill_type: "Developer Tools",
+  color: "F9AB00",
+};
+
+export const JupyterSkill: Skill = {
+  name: "Jupyter",
+  icon: SiJupyter,
+  description: "Machine Learning and Processing Pipelines",
+  skill_type: "Developer Tools",
+  color: "F37626",
 };
 
 export const BootstrapCssSkill: Skill = {
@@ -603,6 +621,8 @@ export const devToolSkills: Skill[] = [
   VSCodeSkill,
   WindowsSkill,
   ExcelSkill,
+  JupyterSkill,
+  GoogleColabSkill,
 ];
 
 export const hardwareSkills: Skill[] = [
