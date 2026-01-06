@@ -43,7 +43,7 @@ export const experiences: Experience[] = [
   {
     name: "Co-Programming Lead",
     organization: "RCCF: Daydream7",
-    image: "/project-images/Chip8.jpg",
+    image: "/experience/daydream.jpg",
     start_date: "August 2025",
     end_date: "Present",
     short_description: "Competitive VEX Robotics Programmer",
@@ -59,7 +59,7 @@ export const experiences: Experience[] = [
   {
     name: "Undergraduate Learning Assistant",
     organization: "University of Central Florida",
-    image: "/project-images/Chip8.jpg",
+    image: "/experience/ula.jpg",
     start_date: "August 2025",
     end_date: "Present",
     short_description:
@@ -77,7 +77,7 @@ export const experiences: Experience[] = [
   {
     name: "Software Engineering Intern",
     organization: "kinkofa",
-    image: "/project-images/Chip8.jpg",
+    image: "/experience/kinkofa.png",
     start_date: "June 2025",
     end_date: "Present",
     short_description:
@@ -110,13 +110,13 @@ export const experiences: Experience[] = [
   {
     name: "Undergraduate Research Assistant",
     organization: "Laboratory for Interaction of Machine and Brain (LIMB)",
-    image: "/project-images/EMSim.jpg",
+    image: "/experience/limb.jpg",
     start_date: "January 2025",
     end_date: "April 2025",
     short_description: "Fault Tolerant Robotics Research",
     location: "University of Central Florida",
     long_description:
-      "As a research assistant, I was focused on the development of fault-tolerant movement policies for quadruped robotics. Specifically, I worked with the Unitree A1 and devised potential methods for using Machine Learning to develop movement policies.",
+      "As a research assistant, I was focused on the development of fault-tolerant movement policies for quadruped robotics. Specifically, I worked with the Unitree Go1 and devised potential methods for using Machine Learning to develop movement policies.",
     keypoints: [
       "Proposed novel fault-tolerant control policies for quadruped locomotion by synthesizing insights from 20+ robotics papers",
       "Researched prototype algorithms in Python and ROS using deep reinforcement learning inspired by animal neural patterns, enhancing gait stability under actuator failure.",
@@ -127,7 +127,7 @@ export const experiences: Experience[] = [
   {
     name: "Embedded Systems Division Lead",
     organization: "ACM-UCF: Project Kestrel",
-    image: "/project-images/Chip8.jpg",
+    image: "/experience/kestrel.jpg",
     start_date: "September 2024",
     end_date: "April 2025",
     short_description: "Autonomous Videography Drone Project",
