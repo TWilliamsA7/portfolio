@@ -7,6 +7,7 @@ import { useAnimationFrame, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import SkillIcon from "@/components/skills/SkillIcon";
 import { cn } from "@/lib/utils";
+import { usePerformanceTier } from "../three/usePerformanceTier";
 
 interface SkillsRowProps {
   index: number;
@@ -22,6 +23,7 @@ export function SkillsRow({ category, className, index }: SkillsRowProps) {
 
   const x = useRef(0);
   const shouldUseReducedMotion = useReducedMotion();
+  const { tier } = usePerformanceTier();
 
   const categorySkills: Skill[] = skills.filter(
     (s) => s.skill_type === category
@@ -45,7 +47,7 @@ export function SkillsRow({ category, className, index }: SkillsRowProps) {
   useAnimationFrame((_, delta) => {
     if (isHovered || !shouldScroll) return;
 
-    const speed = 0.03 * direction;
+    const speed = 0.03 * direction * (tier === "low" ? 0.5 : 1);
     x.current += speed * delta;
 
     const container = containerRef.current;
