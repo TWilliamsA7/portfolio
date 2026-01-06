@@ -11,10 +11,10 @@ import {
   Carrot,
   BriefcaseBusiness,
   ListCheck,
-  Wifi,
   Eye,
   LucideIcon,
 } from "lucide-react";
+
 import {
   ArduinoSkill,
   BashSkill,
@@ -25,7 +25,6 @@ import {
   CssSkill,
   DjangoSkill,
   EclipseSkill,
-  ExcelSkill,
   FastAPISkill,
   FlaskSkill,
   GeminiAPISkill,
@@ -89,7 +88,8 @@ export const projects: Project[] = [
     title: "ASL Neural App",
     description:
       "A lightweight full stack application for transcribing real-time American Sign Language into text via a convolutional neural network.",
-    fullDescription: "<Insert Full Description>", // TODO: FILL IN DESCRIPTION
+    fullDescription:
+      "This project utilizes a full structured machine learning pipeline via Google Colab to create an ASL recognizing Convolutional Neural Network. This model was then integrated into a lightweight flask application for live inference.",
     technologies: [
       PythonSkill,
       JupyterSkill,
@@ -98,7 +98,7 @@ export const projects: Project[] = [
       GoogleColabSkill,
       FlaskSkill,
     ],
-    image: "/globe.svg", // TODO: ADD IMAGE
+    image: "/project-images/ASLNeuralApp.jpg",
     icon: HandMetal,
     githubUrl: "https://github.com/TWilliamsA7/asl-neural-app",
     features: [
@@ -205,16 +205,19 @@ export const projects: Project[] = [
   {
     id: "folder-sort",
     title: "Foldersort",
-    description: "<insert description>", // TODO: ADD DESCRIPTION
-    fullDescription: "<insert full description>", // TODO: ADD FULL DESCRIPTION
+    description:
+      "A rule-based CLI tool for automatically organizing files and directories using a recursive filesystem scanner, YAML-defined rules, and pluggable actions with a verbose logging system.",
+    fullDescription:
+      "Manually organizing influxes of files (specifically directories like Downloads) is tedious and can be error-prone. This tool provides a configurable, rule-based system that can be used to automatically categorize and act on the filesystem using simple conditions and actions to implement complex rules. This tool could be set to be executed on a schedule to consistently clean up a target directory.", // TODO: ADD FULL DESCRIPTION
     technologies: [CppSkill, CMakeSkill, GTestSkill, GithubActionsSkill],
-    image: "", // TODO: ADD IMAGES
+    image: "/project-images/foldersort.jpg",
     icon: Folder,
     githubUrl: "https://github.com/TWilliamsA7/folder-sort",
     features: [
-      "CLI",
+      "Command Line Interface",
       "Customizable rules via YAML",
       "Customizable file scanner",
+      "Safe Dry-run and Verbose Logging",
     ],
     date: new Date("2025-12-02"),
   },
@@ -263,7 +266,8 @@ export const projects: Project[] = [
     id: "portfolio",
     title: "This Portfolio!",
     description: "This portfolio is a showcase of my work and experience.",
-    fullDescription: "<Insert Full Description>", // TODO: Add Full Description
+    fullDescription:
+      "This is version 2 of my professional portfolio. My initial portfolio was a static site via Github Pages. For the next iteration, I wanted to go even further and utilize the skills that I developed at my internship to create an even stronger profile!",
     technologies: [
       TypeScriptSkill,
       NextjsSkill,
@@ -271,10 +275,10 @@ export const projects: Project[] = [
       TailwindCSSSkill,
       BashSkill,
     ],
-    image: "", // TODO: ADD IMAGE
+    image: "/project-images/portfolio.jpg",
     icon: BriefcaseBusiness,
     githubUrl: "https://github.com/TWilliamsA7/portfolio",
-    liveUrl: "", // TODO: ADD DEPLOYMENT URL
+    liveUrl: "/",
     features: ["Interactive animations", "Pre-commit linting hooks"],
     date: new Date("2025-12-02"),
   },
@@ -306,7 +310,7 @@ export const projects: Project[] = [
       FlaskSkill,
       MediapipeSkill,
     ],
-    image: "", // TODO: ADD IMAGE
+    image: "/project-images/SightSpeech.jpg",
     icon: Eye,
     githubUrl: "https://github.com/groffbo/sight-to-speech",
     features: [
@@ -316,18 +320,5 @@ export const projects: Project[] = [
       "Text-Recognition",
     ],
     date: new Date("2025-09-02"),
-  },
-  {
-    id: "wifi-analyze",
-    title: "Wi-Fi Analysis",
-    description:
-      "An analysis of wi-fi signals on my college campus to determine potential variance",
-    fullDescription: "<Insert Full Description>", // TODO: ADD FULL DESCRIPTION
-    technologies: [PythonSkill, ExcelSkill],
-    image: "", // TODO: ADD IMAGE
-    icon: Wifi,
-    githubUrl: "https://github.com/TWilliamsA7/wifi-analyze-scripts",
-    features: [],
-    date: new Date("2025-11-02"),
   },
 ];
