@@ -26,11 +26,11 @@ export default function SkillIcon({
             <Icon className={className} style={{ color: skill.color }} />
           </TooltipTrigger>
         </GrowOnHover>
-        <TooltipContent side="top">
-          <p>{skill.name}</p>
+        <TooltipContent side="top" className="bg-primary-foreground">
+          <p className="text-primary">{skill.name}</p>
         </TooltipContent>
-        <TooltipContent side="bottom">
-          <p>{skill.description}</p>
+        <TooltipContent side="bottom" className="bg-primary-foreground">
+          <p className="text-primary">{skill.description}</p>
         </TooltipContent>
       </Tooltip>
     </div>
