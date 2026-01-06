@@ -30,7 +30,7 @@ export default function ExperienceCard({
             src={experience.image}
             alt={`${experience.name}-${experience.organization}`}
             fill
-            className="object-cover"
+            className="object-cover border-2"
             priority={false}
           />
 
@@ -48,14 +48,14 @@ export default function ExperienceCard({
                 </p>
               </div>
 
-              <span className="text-md text-muted-foreground whitespace-nowrap">
+              <span className="text-md text-muted-foreground whitespace-nowrap hidden md:block">
                 {experience.start_date} - {experience.end_date}
               </span>
             </div>
 
             <div className="mt-3 flex items-center gap-2">
               {/* Add more metadata here */}
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-muted-foreground hidden md:block">
                 {experience.short_description}
               </p>
               <Button
@@ -80,6 +80,9 @@ export default function ExperienceCard({
               className="overflow-hidden"
             >
               <div className="bg-card px-6 py-5 rounded-2xl">
+                <span className="text-md text-primary whitespace-nowrap md:hidden block">
+                  {experience.start_date} - {experience.end_date}
+                </span>
                 <p className="text-sm text-muted-foreground">
                   {experience.long_description}
                 </p>
