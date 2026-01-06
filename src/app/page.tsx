@@ -19,8 +19,6 @@ export default function Home() {
       <FeaturedProjectsSection />
 
       <SkillsSection />
-
-      <ExperienceSection />
     </main>
   );
 }
