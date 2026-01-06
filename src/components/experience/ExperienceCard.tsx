@@ -55,7 +55,7 @@ export default function ExperienceCard({
 
             <div className="mt-3 flex items-center gap-2">
               {/* Add more metadata here */}
-              <p className="text-sm text-muted-foreground hidden md:block">
+              <p className="text-md text-muted-foreground hidden md:block">
                 {experience.short_description}
               </p>
               <Button
@@ -83,7 +83,7 @@ export default function ExperienceCard({
                 <span className="text-md text-primary whitespace-nowrap md:hidden block">
                   {experience.start_date} - {experience.end_date}
                 </span>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground mb-2">
                   {experience.long_description}
                 </p>
                 <ul className="space-y-2 text-sm">
@@ -93,6 +93,14 @@ export default function ExperienceCard({
                     </li>
                   ))}
                 </ul>
+                <h4 className="text-md text-card-foreground mt-2 mb-1 underline font-semibold">
+                  Skills Used:
+                </h4>
+                <div className="flex my-2 space-x-3">
+                  {experience.skills.map((s, idx) => (
+                    <SkillIcon key={idx} skill={s} className="h-10 w-10" />
+                  ))}
+                </div>
               </div>
             </motion.div>
           )}
