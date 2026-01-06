@@ -103,7 +103,7 @@ export const CppSkill: Skill = {
   icon: SiCplusplus,
   description: "Simulators, Cross-system Toolss, and Robotics",
   skill_type: "Languages",
-  color: "#A8B9CC",
+  color: "#00599C",
 };
 
 export const CssSkill: Skill = {
