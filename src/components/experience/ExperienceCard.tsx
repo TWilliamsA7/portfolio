@@ -80,7 +80,7 @@ export default function ExperienceCard({
               className="overflow-hidden"
             >
               <div className="bg-card px-6 py-5 rounded-2xl">
-                <span className="text-md text-primary whitespace-nowrap md:hidden block">
+                <span className="text-md text-primary whitespace-nowrap md:hidden block font-semibold">
                   {experience.start_date} - {experience.end_date}
                 </span>
                 <p className="text-sm text-muted-foreground font-semibold mb-2">
