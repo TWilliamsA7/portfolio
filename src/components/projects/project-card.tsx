@@ -41,7 +41,7 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
               key={index}
               className="px-2 py-1 bg-border text-primary rounded text-sm"
             >
-              {tech}
+              {tech.name}
             </span>
           ))}
           {project.technologies.length > 3 && (
