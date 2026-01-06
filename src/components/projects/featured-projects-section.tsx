@@ -20,10 +20,10 @@ export function FeaturedProjectsSection() {
     <>
       <section id="projects" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl text-white mb-4 text-center">
+          <h2 className="text-3xl sm:text-4xl text-primary font-bold mb-4 text-center">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto font-semibold">
             A selection of projects showcasing my skills in full-stack
             development, embedded systems, and software engineering
           </p>
