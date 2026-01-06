@@ -83,9 +83,12 @@ export default function ExperienceCard({
                 <span className="text-md text-primary whitespace-nowrap md:hidden block">
                   {experience.start_date} - {experience.end_date}
                 </span>
-                <p className="text-sm text-muted-foreground mb-2">
+                <p className="text-sm text-muted-foreground font-semibold mb-2">
                   {experience.long_description}
                 </p>
+                <h4 className="text-sm text-card-foreground mt-2 mb-1 underline font-semibold">
+                  Keypoints:
+                </h4>
                 <ul className="space-y-2 text-sm">
                   {experience.keypoints.map((keypoint, idx) => (
                     <li key={idx} className="list-disc ml-4">
@@ -96,7 +99,7 @@ export default function ExperienceCard({
                 <h4 className="text-md text-card-foreground mt-2 mb-1 underline font-semibold">
                   Skills Used:
                 </h4>
-                <div className="flex my-2 space-x-3">
+                <div className="flex my-2 space-x-3 flex-wrap space-y-1">
                   {experience.skills.map((s, idx) => (
                     <SkillIcon key={idx} skill={s} className="h-10 w-10" />
                   ))}
