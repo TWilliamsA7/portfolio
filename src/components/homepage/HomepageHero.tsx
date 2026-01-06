@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { motion, type Variants } from "motion/react";
 import { ContinuousBob, GrowOnHover } from "@/components/layout/Animations";
@@ -29,6 +28,11 @@ export default function HomepageHero() {
       opacity: 1,
       transition: { type: "spring", stiffness: 100 },
     },
+  };
+
+  const forceScroll = () => {
+    const AboutSection = document.getElementById("about");
+    if (AboutSection) AboutSection.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -80,7 +84,11 @@ export default function HomepageHero() {
 
         <motion.div variants={itemVariants} className="mt-8">
           <GrowOnHover scale={1.05} duration={0.15}>
-            <Button size="lg" className="text-lg hover:text-accent">
+            <Button
+              size="lg"
+              className="text-lg hover:text-accent"
+              onClick={forceScroll}
+            >
               View My Work!
               <ArrowDown className="ml-2 h-5 w-5" />
             </Button>

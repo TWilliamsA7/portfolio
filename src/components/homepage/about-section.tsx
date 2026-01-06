@@ -26,7 +26,7 @@ export default function AboutSection() {
       id="about"
       className="py-16 md:py-24 px-4 md:px-8 max-w-7xl mx-auto"
     >
-      <h2 className="text-xl font-semibold text-center text-primary mb-12 uppercase tracking-widest">
+      <h2 className="text-xl md:text-3xl font-bold text-center text-primary mb-12 uppercase tracking-widest">
         About Me
       </h2>
 
