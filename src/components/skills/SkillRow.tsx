@@ -79,8 +79,8 @@ export function SkillsRow({ category, className, index }: SkillsRowProps) {
       </h2>
       <div className="relative w-full max-w-4xl overflow-hidden">
         {/* Edge fades */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-transparent z-10" />
 
         {/* Scrolling track */}
         <div
@@ -94,7 +94,7 @@ export function SkillsRow({ category, className, index }: SkillsRowProps) {
             <SkillIcon
               key={`${skill.name}-${idx}`}
               skill={skill}
-              className="h-10 w-10 text-muted-foreground hover:text-primary"
+              className={`h-10 w-10`}
             />
           ))}
         </div>
