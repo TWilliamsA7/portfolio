@@ -20,10 +20,10 @@ const geistMono = Geist_Mono({
 
 // --- METADATA FOR SEO & SOCIAL SHARING ---
 const SITE_TITLE: string =
-  "Tai Williams | Software Engineer & Developer Portfolio";
+  "Tai Williams | Computer Engineer & Developer Portfolio";
 const SITE_DESCRIPTION: string =
   "A professional portfolio showcasing projects, skills, and experience in modern web development using Next.js, TypeScript, and Tailwind CSS.";
-const SITE_URL: string = "https://yourportfolio.com";
+const SITE_URL: string = "https://twilliamsa.vercel.app";
 
 export const metadata: Metadata = {
   // Primary SEO Tags
@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     "Portfolio",
     "Software Engineer",
     "Web Developer",
+    "Computer Engineer",
+    "FPGA",
+    "ASIC",
   ],
   authors: [{ name: "Tai Williams" }],
 
