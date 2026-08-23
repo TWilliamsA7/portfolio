@@ -35,6 +35,7 @@ import {
   JavaScriptSkill,
   JavaSkill,
   JupyterSkill,
+  LinuxSkill,
   MediapipeSkill,
   NextjsSkill,
   OpenCVSkill,
@@ -290,10 +291,29 @@ export const Portfolio: Project = {
   date: new Date("2025-12-02"),
 };
 
+export const RISCVEmulator: Project = {
+  id: "riscv-emulator",
+  title: "RISC-V CPU Emulator",
+  description:
+    "32-Bit RISC-V emulator accompanied by necessary peripheral set to boot a Linux guest.",
+  fullDescription:
+    "A cycle-driven RISC-V (RV32) emulator implementing Machine/Supervisor/User privilege modes, Sv32 paging, and a virtio-based peripheral set sufficient to boot a Linux guest via OpenSBI. Built in C++20, targeting both Windows (MSVC/UCRT64) and Linux/WSL hosts.",
+  technologies: [CppSkill, CSkill, LinuxSkill, CMakeSkill, SDL2Skill],
+  image: "/project-images/riscvemulator.jpg",
+  icon: Cpu,
+  githubUrl: "https://github.com/TWilliamsA7/RISCV-CPU-Emulator",
+  features: [
+    "Priviledged Architecture",
+    "Virtio-based Disk & Networking",
+    "Full Compliance with Official riscv-tests",
+  ],
+  date: new Date("2026-07-07"),
+};
+
 export const TaskManager: Project = {
   id: "python-task-manager",
   title: "Task Manager",
-  description: "A simply app to manage tasks built in Python",
+  description: "A simple app to manage tasks built in Python",
   fullDescription:
     "This project is a task management application with a simple GUI made with Tkinter. Tasks are formatted in saved within a text file for easy retrieval.",
   technologies: [PythonSkill],
@@ -343,6 +363,7 @@ export const projects: Project[] = [
   GNORBoat,
   Growcery,
   Portfolio,
+  RISCVEmulator,
   TaskManager,
   SightSpeech,
 ];

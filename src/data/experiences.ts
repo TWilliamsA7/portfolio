@@ -23,6 +23,7 @@ import {
   TailwindCSSSkill,
   TypeScriptSkill,
   VercelSkill,
+  VerilogSkill,
   VSCodeSkill,
 } from "@/data/skills";
 
@@ -40,6 +41,23 @@ export interface Experience {
 }
 
 export const experiences: Experience[] = [
+  {
+    name: "ASIC Physical Design Intern",
+    organization: "NVIDIA",
+    image: "/experience/nvidia.webp",
+    start_date: "May 2026",
+    end_date: "August 2026",
+    short_description: "ASIC Physical Design",
+    location: "Santa Clara, CA",
+    long_description:
+      "As an ASIC Physical Design Intern, I developed tooling to accelerate design workflows and catch errors earlier on in flows. I developed automated agentic workflows with supporting dashboards for optimizing placements within the chip design.",
+    keypoints: [
+      "Reduced pre-PnR layout iteration time from days to hours on large, hierarchical chiplet designs, by architecting a Python-based LLM agent that autonomously diagnosed tool and script errors and resolved them using its own toolset, without hardcoded logic.",
+      "Enabled placement convergence on early-stage designs where the vendor full-placement flow frequently failed to run or was difficult to configure, by developing a tuned heuristic optimizer that used extracted design data to generate a cheap, accurate placement estimate for use alongside physical synthesis iterations.",
+      "Unified fragmented, agent-unsafe constraint files across 3 IPs, previously spread across incompatible formats, into a single Python-based internal framework supporting natural-language-driven automated editing, cutting engineer setup time by 80%.",
+    ],
+    skills: [PythonSkill, LinuxSkill, VerilogSkill],
+  },
   {
     name: "Co-Programming Lead",
     organization: "RCCF: Daydream7",
