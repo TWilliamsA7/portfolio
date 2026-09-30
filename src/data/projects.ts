@@ -13,6 +13,7 @@ import {
   ListCheck,
   Eye,
   LucideIcon,
+  Radar,
 } from "lucide-react";
 
 import {
@@ -40,6 +41,7 @@ import {
   NextjsSkill,
   OpenCVSkill,
   PythonSkill,
+  ReactSkill,
   SDL2Skill,
   Skill,
   SQLiteSkill,
@@ -82,6 +84,27 @@ export const Java3DRenderer: Project = {
     "Depth-Based Vertex Shading",
   ],
   date: new Date("2025-05-02"),
+};
+
+export const syrenProject: Project = {
+  id: "syren",
+  title: "Syren",
+  description:
+    "Real-time aviation anomaly detection that monitors aircraft telemetry and flags potential emergencies as they develop.",
+  fullDescription:
+    "Syren turns live and archived ADS-B flight telemetry into a real-time airspace monitoring tool. It tracks aircraft on an interactive map, detects emergency squawks and unusual flight behavior, and supports historical replay and simulated scenarios for evaluating detections.",
+  technologies: [PythonSkill, TypeScriptSkill, ReactSkill],
+  image: "/project-images/syren.gif",
+  icon: Radar,
+  githubUrl: "https://github.com/TWilliamsA7/Syren",
+  features: [
+    "Monitor live US air traffic on an interactive map",
+    "Detect emergency squawks, rapid descents, and other flight anomalies",
+    "Replay archived flight data with the same detection engine",
+    "Simulate flights with injected anomalies for evaluation",
+    "Ask Gemini for a plain-language aircraft summary",
+  ],
+  date: new Date("2026-09-27"),
 };
 
 export const ASLNeuralApp: Project = {
@@ -366,4 +389,5 @@ export const projects: Project[] = [
   RISCVEmulator,
   TaskManager,
   SightSpeech,
+  syrenProject,
 ];
