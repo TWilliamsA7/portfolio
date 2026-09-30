@@ -16,7 +16,7 @@ export default function ProjectsPage() {
         </h1>
 
         <p className="text-foreground text-center mb-12 max-w-2xl mx-auto">
-          A showcase of many of my projects from recent times!
+          A Portfolio of Everything I have Worked On!
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

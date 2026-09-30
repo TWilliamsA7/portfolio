@@ -41,6 +41,7 @@ import {
   NextjsSkill,
   OpenCVSkill,
   PythonSkill,
+  RaspberryPiSkill,
   ReactSkill,
   SDL2Skill,
   Skill,
@@ -84,6 +85,61 @@ export const Java3DRenderer: Project = {
     "Depth-Based Vertex Shading",
   ],
   date: new Date("2025-05-02"),
+};
+
+import { Bot, ShieldCheck } from "lucide-react";
+
+export const rioo: Project = {
+  id: "rioo",
+  title: "RIOO",
+  description:
+    "A gaze-controlled assistive robotic arm that translates eye movement into real-time physical interaction.",
+  fullDescription:
+    "RIOO (Robotic Intelligent Optical Operator) is a custom-built assistive robotic arm designed to give users hands-free control through real-time gaze tracking. A Raspberry Pi 3 uses OpenCV and MediaPipe to translate eye movement into target coordinates, while an ESP32 handles inverse kinematics, servo control, and safety systems. The arm combines gaze input with Time-of-Flight and ultrasonic sensing for depth-aware grabbing and collision avoidance. The complete mechanical system was designed in CAD and 3D printed with custom 2:1 gear ratios, creating an end-to-end hardware and software system built from the ground up during HackaBull 2026.",
+  technologies: [
+    CppSkill,
+    PythonSkill,
+    OpenCVSkill,
+    MediapipeSkill,
+    RaspberryPiSkill,
+    CircuitDesignSkill,
+  ],
+  image: "/project-images/rioo.jpg",
+  icon: Bot,
+  githubUrl: "https://github.com/TWilliamsA7/RIOO",
+  liveUrl: "https://devpost.com/software/rioo",
+  features: [
+    "Real-time gaze tracking and eye-controlled robotic manipulation",
+    "Distributed Raspberry Pi and ESP32 architecture over UART",
+    "Inverse kinematics with EMA filtering for smooth arm movement",
+    "Ultrasonic collision avoidance with automatic evasive motion",
+    "Time-of-Flight depth sensing for safe object grabbing",
+    "Custom 3D-printed arm with 2:1 geared joints",
+  ],
+  date: new Date("2026-04-26"),
+};
+
+export const vigilEyes: Project = {
+  id: "vigileyes",
+  title: "VigilEyes",
+  description:
+    "A real-time driver safety system that combines computer vision and vehicle motion data to detect fatigue and dangerous driving.",
+  fullDescription:
+    "VigilEyes is a real-time digital co-pilot designed to detect fatigue and dangerous driving behavior in long-haul truckers. A React Native mobile application streams camera frames, accelerometer data, and gyroscope data to a Flask processing backend over WebSockets. Custom-trained YOLOv8 models detect drowsiness, eye closure, and yawning, while Random Forest classifiers analyze temporal motion data for sudden or erratic vehicle movement. These signals are fused into a dynamic 0–100 risk score that drives immediate audio-visual alerts and a live React monitoring dashboard. The system was built during HackUSF 2026, where it won 3rd place overall.",
+  technologies: [PythonSkill, ReactSkill, FlaskSkill, JupyterSkill],
+  image: "/project-images/vigileyes.jpg",
+  icon: ShieldCheck,
+  githubUrl: "https://github.com/Arthur1asdf/VigilEyes",
+  liveUrl: "https://devpost.com/software/truck-driving",
+  features: [
+    "Dynamic 0-100 driver fatigue and safety risk score",
+    "Custom-trained YOLOv8 models for drowsiness and yawning detection",
+    "Random Forest classification of accelerometer and gyroscope data",
+    "Real-time fusion of visual and vehicle motion risk factors",
+    "Low-latency WebSocket streaming between mobile app and backend",
+    "React dashboard for live driver telemetry and risk monitoring",
+  ],
+  date: new Date("2026-03-29"),
 };
 
 export const syrenProject: Project = {
@@ -390,4 +446,6 @@ export const projects: Project[] = [
   TaskManager,
   SightSpeech,
   syrenProject,
+  vigilEyes,
+  rioo,
 ];

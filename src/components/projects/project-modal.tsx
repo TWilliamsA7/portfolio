@@ -50,12 +50,13 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <div className="p-6">
-          <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-6">
+          <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-6 bg-primary">
             <Image
               src={project.image ? project.image : "/globe.svg"}
               alt={project.title}
               fill
-              className="group-hover:scale-110 transition-transform duration-300"
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-contain"
             />
           </div>
 

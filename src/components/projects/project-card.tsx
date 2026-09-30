@@ -19,7 +19,8 @@ export function ProjectCard({ project, onClick }: ProjectCardProps) {
           src={project.image ? project.image : "/globe.svg"}
           alt={project.title}
           fill
-          className="group-hover:scale-110 transition-transform duration-300"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover group-hover:scale-110 transition-transform duration-300"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-10"></div>
         <div className="absolute bottom-4 left-4">

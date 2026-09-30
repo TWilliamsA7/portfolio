@@ -10,10 +10,10 @@ import { Separator } from "@/components/ui/separator";
 export function FeaturedProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const FEATURED_PROJECT_IDS: string[] = [
+    "rioo",
+    "riscv-emulator",
     "emsim",
-    "folder-sort",
-    "asl-neural-app",
-    "growcery",
+    "syren",
   ];
 
   return (
